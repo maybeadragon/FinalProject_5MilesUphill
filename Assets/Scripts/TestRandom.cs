@@ -7,6 +7,7 @@ public class TestRandom : MonoBehaviour
 {
     GameObject[] walls;
     int index = -1;
+    public Material material;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,7 @@ public class TestRandom : MonoBehaviour
                     walls[index] = GameObject.CreatePrimitive(PrimitiveType.Cube);
                     walls[index].transform.localScale = new Vector3(2f, 2f, 2f);
                     walls[index].transform.position = new Vector3(3f + index, 0f, 0f);
+                    walls[index].GetComponent<Renderer>().material = material;
                     break;
                 case 2:
                     index++; 
