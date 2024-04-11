@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class CountdownTimer : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class CountdownTimer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timeAllowed = 900f; // 15 minutes, could change depending on difficulty
+        timeAllowed = 10f; // 900 sec = 15 minutes, could change depending on difficulty
         EnableTimer();
     }
 
@@ -30,7 +31,7 @@ public class CountdownTimer : MonoBehaviour
         if (timeAllowed <= 0 && isEnabled)
         {
             timeAllowed = 0;
-            // action to quit game/go to fail
+            SceneManager.LoadScene("FailScreen");
         }
 
         float minutes = Mathf.FloorToInt(timeAllowed / 60f);
