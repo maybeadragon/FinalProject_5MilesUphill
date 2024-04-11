@@ -37,6 +37,7 @@ public class ColdEffect : MonoBehaviour
             else
             {
                 coldLevel = maxCold;
+                GameManager.LoadScene("FailScreen");
             }
         }
         coldBar.value = coldLevel;

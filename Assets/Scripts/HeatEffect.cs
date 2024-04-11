@@ -44,6 +44,7 @@ public class HeatEffect : MonoBehaviour
             else
             {
                 heatLevel = maxHeat;
+                GameManager.LoadScene("FailScreen");
             }
         }
         heatBar.value = heatLevel;

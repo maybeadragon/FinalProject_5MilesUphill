@@ -4418,6 +4418,7 @@ GameObject:
   - component: {fileID: 1731136027}
   - component: {fileID: 1731136026}
   - component: {fileID: 1731136029}
+  - component: {fileID: 1731136030}
   m_Layer: 5
   m_Name: StartGameButton
   m_TagString: Untagged
@@ -4489,9 +4490,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1731136029}
-        m_TargetAssemblyTypeName: StartGame, Assembly-CSharp
-        m_MethodName: LoadRandomScreen
+      - m_Target: {fileID: 1731136030}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4549,6 +4550,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 767acfb4515e86549b04d54d725f75dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1731136030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731136024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 302994faa978a0e44ae2bdd977b0f4a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1732330673 stripped
@@ -4623,6 +4636,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6215317277412589316, guid: 07080211c587560488e61b2f4fc3d73e, type: 3}
   m_PrefabInstance: {fileID: 1147175810}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1752910567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1752910569}
+  - component: {fileID: 1752910568}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1752910568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752910567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 302994faa978a0e44ae2bdd977b0f4a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1752910569
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752910567}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1759320071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5193,6 +5250,7 @@ GameObject:
   - component: {fileID: 2016808981}
   - component: {fileID: 2016808980}
   - component: {fileID: 2016808979}
+  - component: {fileID: 2016808983}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -5276,9 +5334,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2016808979}
-        m_TargetAssemblyTypeName: StartGame, Assembly-CSharp
-        m_MethodName: LoadSpecificScene
+      - m_Target: {fileID: 2016808983}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5326,6 +5384,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016808977}
   m_CullTransparentMesh: 1
+--- !u!114 &2016808983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016808977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 302994faa978a0e44ae2bdd977b0f4a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2032672010 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6215317277412589316, guid: 07080211c587560488e61b2f4fc3d73e, type: 3}
@@ -5496,3 +5566,4 @@ SceneRoots:
   - {fileID: 1890542024}
   - {fileID: 1085299138}
   - {fileID: 1780841313}
+  - {fileID: 1752910569}

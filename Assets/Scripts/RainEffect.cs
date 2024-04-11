@@ -44,6 +44,7 @@ public class RainEffect : MonoBehaviour
             else
             {
                 rainLevel = maxRain;
+                GameManager.LoadScene("FailScreen");
             }
         }
         rainBar.value = rainLevel;

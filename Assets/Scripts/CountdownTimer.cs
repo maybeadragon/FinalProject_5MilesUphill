@@ -8,15 +8,15 @@ using UnityEngine.SceneManagement;
 
 public class CountdownTimer : MonoBehaviour
 {
-    private float timeAllowed;
-    public TextMeshProUGUI timerText;
-    public Boolean isEnabled;
-    private Boolean wasStarted;
-    private float timeWhenPaused;
+    public static float timeAllowed = 900f; // 900 sec = 15 minutes
+    static TextMeshProUGUI timerText; 
+    public static Boolean isEnabled;
+    private static Boolean wasStarted;
+    private static float timeWhenPaused;
     // Start is called before the first frame update
     void Start()
     {
-        timeAllowed = 10f; // 900 sec = 15 minutes, could change depending on difficulty
+        timerText = GetComponent<TextMeshProUGUI>();
         EnableTimer();
     }
 
@@ -51,7 +51,7 @@ public class CountdownTimer : MonoBehaviour
 
     // TO DO: add enable/disable timer
 
-    public void EnableTimer()
+    public static void EnableTimer()
     {
         isEnabled = true;
         if (wasStarted)
@@ -62,7 +62,7 @@ public class CountdownTimer : MonoBehaviour
 
     }
 
-    public void DisableTimer()
+    public static void DisableTimer()
     {
         isEnabled = false;
         wasStarted = true;

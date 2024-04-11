@@ -39,6 +39,7 @@ public class WindEffect : MonoBehaviour
             else
             {
                 windLevel = maxWind;
+                GameManager.LoadScene("FailScreen");
             }
         }
         windBar.value = windLevel;

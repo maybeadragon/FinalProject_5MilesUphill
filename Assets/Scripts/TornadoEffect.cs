@@ -37,6 +37,7 @@ public class TornadoEffect : MonoBehaviour
                 {
                     pullLevel = maxPull;
                     player.transform.localPosition += new Vector3(0f, 5f * Time.deltaTime, 0f);
+                    GameManager.LoadScene("FailScreen");
                 }
                 tornadoBar.value = pullLevel;
             }
