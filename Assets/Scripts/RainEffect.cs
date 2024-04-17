@@ -6,58 +6,55 @@ using UnityEngine.UI;
 public class RainEffect : MonoBehaviour
 {
     private float rainLevel = 0f;
-    private float maxRain = 100f;
+    private float maxRain = 1f;
+    private bool isRaining;
+
     public ParticleSystem rainEffect;
     public Slider rainBar;
     // Start is called before the first frame update
     void Start()
     {
-        rainBar.gameObject.SetActive(false); 
-        rainEffect.Stop();
+        StartRaining();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (isRaining)
+            Raining();
+
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void StartRaining()
     {
-        if (other.CompareTag("Player"))
+        rainEffect.Play();
+        rainLevel = 0.05f;
+        rainBar.value = rainLevel;
+        isRaining = true;
+        rainBar.gameObject.SetActive(true);
+    }
+
+    public void StopRaining()
+    {
+        rainEffect.Stop();
+        rainLevel = 0f;
+        rainBar.value = rainLevel;
+        isRaining = false;
+        rainBar.gameObject.SetActive(false);
+    }
+
+    public void Raining()
+    {
+        if (rainLevel < maxRain)
         {
-            rainEffect.Play();
-            rainLevel = 0.05f;
-            rainBar.value = rainLevel;
-            rainBar.gameObject.SetActive(true);
+            rainLevel += 0.01f * Time.deltaTime;
         }
-
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        else
         {
-            if (rainLevel < maxRain)
-            {
-                rainLevel += 0.01f * Time.deltaTime;
-            }
-            else
-            {
-                rainLevel = maxRain;
-                GameManager.LoadScene("FailScreen");
-            }
+            rainLevel = maxRain;
         }
         rainBar.value = rainLevel;
+
     }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            rainEffect.Stop();
-            rainLevel = 0f;
-            rainBar.value = rainLevel;
-            rainBar.gameObject.SetActive(false);
-        }
-    }
-    
+
 }
