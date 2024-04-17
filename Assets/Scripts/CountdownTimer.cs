@@ -17,7 +17,21 @@ public class CountdownTimer : MonoBehaviour
     void Start()
     {
         timerText = GetComponent<TextMeshProUGUI>();
+        timerText.fontSize = 24f;
         EnableTimer();
+        HeatEffect.tooHot += DisableTimer;
+        TornadoEffect.caught += DisableTimer;
+        ColdEffect.tooCold += DisableTimer;
+        PauseGame.Quit += QuitTimer;
+
+    }
+    private void OnDisable()
+    {
+        HeatEffect.tooHot -= DisableTimer;
+        TornadoEffect.caught -= DisableTimer;
+        ColdEffect.tooCold -= DisableTimer;
+        PauseGame.Quit -= QuitTimer;
+
     }
 
     // Update is called once per frame
@@ -31,21 +45,12 @@ public class CountdownTimer : MonoBehaviour
         if (timeAllowed <= 0 && isEnabled)
         {
             timeAllowed = 0;
-            SceneManager.LoadScene("FailScreen");
+            SceneManager.LoadSceneAsync("FailScreen");
         }
 
         float minutes = Mathf.FloorToInt(timeAllowed / 60f);
         float seconds = Mathf.FloorToInt(timeAllowed % 60f);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-
-        if (Input.GetKeyDown(KeyCode.Escape) && isEnabled)
-        {
-            DisableTimer();
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            EnableTimer();
-        }
 
     }
 
@@ -67,5 +72,12 @@ public class CountdownTimer : MonoBehaviour
         isEnabled = false;
         wasStarted = true;
         timeWhenPaused = timeAllowed;
+    }
+
+    public static void QuitTimer()
+    {
+        isEnabled = false;
+        wasStarted = false;
+        timeAllowed = 900f;
     }
 }
