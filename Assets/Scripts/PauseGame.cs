@@ -26,6 +26,16 @@ public class PauseGame : MonoBehaviour
             else
                 PauseAction();
         }
+        if (isPaused && pauseMenu != null)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 
     public void PauseAction() 
