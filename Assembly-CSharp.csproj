@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\SanctuaryZone.cs" />
     <Compile Include="Assets\imports\LB3D\Bus\Scripts\BusControl.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\StaminaBar.cs" />
     <Compile Include="Assets\imports\AQUAS-Lite\Scripts\AQUAS_Lite_CamNav.cs" />
     <Compile Include="Assets\Scripts\WindEffect.cs" />
   </ItemGroup>
