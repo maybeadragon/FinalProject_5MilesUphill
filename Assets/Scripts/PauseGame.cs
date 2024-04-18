@@ -37,6 +37,7 @@ public class PauseGame : MonoBehaviour
 
     public void PlayAction()
     {
+        Debug.Log("play");
         pauseMenu.SetActive(false);
         isPaused = false;
         Time.timeScale = 1.0f;

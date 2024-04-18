@@ -52,7 +52,7 @@ public class GameController : MonoBehaviour
         
         if (levelsCompleted <= 5)
         {
-            int randIndex = UnityEngine.Random.Range(1, 2);
+            int randIndex = UnityEngine.Random.Range(1, SceneManager.sceneCountInBuildSettings - 2);
             if (levelsCompleted == 0)
             {
                 Debug.Log("start");
