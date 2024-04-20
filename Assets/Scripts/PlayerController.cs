@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 7f;
     private bool hasKeyItem = false;
-    public float jump = 15f;
+    public float jump = 10f;
     private bool onFloor;
 
     private void OnTriggerEnter(Collider item)

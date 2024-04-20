@@ -80,6 +80,7 @@
     <Compile Include="Assets\imports\WorldSkies\Demo\Scripts\SkyboxChanger.cs" />
     <Compile Include="Assets\Scripts\CountdownTimer.cs" />
     <Compile Include="Assets\Scripts\StalkerAIStateMachine.cs" />
+    <Compile Include="Assets\Scripts\MovementSFX.cs" />
     <Compile Include="Assets\imports\WorldSkies\Demo\Scripts\LookCamera.cs" />
     <Compile Include="Assets\imports\AQUAS-Lite\Scripts\AQUAS_Lite_Camera.cs" />
     <Compile Include="Assets\Scripts\StartGame.cs" />
