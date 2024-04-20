@@ -4,18 +4,34 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public GameObject player;
-    private Vector3 offset;
+    public Transform target; // Player character to follow
+    public float distance = 5.0f; // Distance from the player
+    public float height = 2.0f; // Height above the player
+    public float rotationSpeed = 2.0f; // Speed of camera rotation
+    public float minVerticalAngle = -20.0f; // Minimum vertical angle
+    public float maxVerticalAngle = 80.0f; // Maximum vertical angle
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        offset = transform.position - player.transform.position;
-    }
+    private float currentRotationX = 0.0f;
+    private float currentRotationY = 0.0f;
 
-    // Update is called once per frame
     void LateUpdate()
     {
-        transform.position = player.transform.position + offset;
+        if (!target)
+            return;
+
+        // Rotate the camera based on mouse input
+        currentRotationX += Input.GetAxis("Mouse X") * rotationSpeed;
+        currentRotationY -= Input.GetAxis("Mouse Y") * rotationSpeed;
+        currentRotationY = Mathf.Clamp(currentRotationY, minVerticalAngle, maxVerticalAngle);
+
+        // Calculate the desired rotation angle around the player
+        Quaternion rotation = Quaternion.Euler(currentRotationY, currentRotationX, 0);
+
+        // Adjust the camera's position based on the desired angle and distance
+        Vector3 targetPosition = target.position - (rotation * Vector3.forward * distance) + (Vector3.up * height);
+
+        // Smoothly interpolate the camera's position and rotation
+        transform.position = targetPosition;
+        transform.rotation = rotation;
     }
 }
