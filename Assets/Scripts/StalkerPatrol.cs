@@ -9,6 +9,10 @@ public class StalkerPatrol : StalkerState
     private Transform playerTransform;
 
     private float detectionZone = 20f;
+    private float teleportRange = 5f;
+    private float teleportationTime = 10f;
+    private bool isTeleporting;
+    private float lastDetectionTime;
 
     public StalkerPatrol(StalkerStateMachine stateMachine, UnityEngine.AI.NavMeshAgent agent)
     {
@@ -40,6 +44,15 @@ public class StalkerPatrol : StalkerState
                 stateMachine.stalker.SetDestination(waypoints[index].position);
             }
         }
+    }
+
+    public void TeleportNearPlayer()
+    {
+        Vector3 randomOffset = Random.insideUnitSphere * teleportRange;
+        randomOffset.y = 0;
+        stateMachine.stalker.Warp(playerTransform.position + randomOffset);
+        isTeleporting = true;
+        lastDetectionTime = Time.time;
     }
 
     public void Exit()
