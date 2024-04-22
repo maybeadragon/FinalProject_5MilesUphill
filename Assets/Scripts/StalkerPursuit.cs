@@ -10,6 +10,9 @@ public class StalkerPursuit : StalkerState
     private float lastDetectionTime;
     private float detectionRange = 10f;
 
+    private float avoidanceDistance = 2f; // Distance at which the agent starts avoiding obstacles
+    private float avoidanceForce = 5f; // Magnitude of the steering force applied to avoid obstacles
+
      public StalkerPursuit(StalkerStateMachine stateMachine, UnityEngine.AI.NavMeshAgent agent)
     {
         this.stateMachine = stateMachine;
@@ -46,6 +49,8 @@ public class StalkerPursuit : StalkerState
             stateMachine.SetState(new StalkerPatrol(stateMachine, agent));
         }
 
+        Steer();
+
     }
     private bool IsPlayerInFieldOfView()
     {
@@ -65,6 +70,22 @@ public class StalkerPursuit : StalkerState
         }
 
         return false;
+    }
+
+
+    private void Steer()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(agent.transform.position, agent.transform.forward, out hit, avoidanceDistance))
+        {
+            // Calculate steering force based on the distance to the obstacle
+            float steerFactor = Mathf.Clamp01(1 - (hit.distance / avoidanceDistance));
+            Vector3 avoidanceDirection = Vector3.Cross(hit.normal, Vector3.up);
+            Vector3 steerForce = avoidanceDirection * avoidanceForce * steerFactor;
+
+            // Apply steering force to adjust the agent's direction
+            agent.velocity += steerForce * Time.deltaTime;
+        }
     }
 
      public void Exit()
