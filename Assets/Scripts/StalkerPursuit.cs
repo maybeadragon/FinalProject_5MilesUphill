@@ -88,6 +88,24 @@ public class StalkerPursuit : StalkerState
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        // Check if the collider is the player
+        if (other.CompareTag("Player"))
+        {
+            // Call the game over function
+            GameOver();
+        }
+    }
+
+    // Function to handle game over
+    private void GameOver()
+    {
+        // Show game over screen or trigger game over logic
+        Debug.Log("Game Over");
+    }
+    
+
      public void Exit()
     {
     }
