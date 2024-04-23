@@ -1,29 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ExitScript : MonoBehaviour
 {
     public GameObject exit;
     public GameObject player;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+    public static event Action exitLevel;
 
     // Update is called once per frame
     void Update()
     {
-        if (player.transform.position.x < (exit.transform.position.x + 1f) && player.transform.position.x > (exit.transform.position.x - 1f))
+        if (player.transform.position.x < (exit.transform.position.x + 2f) && player.transform.position.x > (exit.transform.position.x - 2f))
         {
-            if (player.transform.position.z < (exit.transform.position.z + 1f) && player.transform.position.z > (exit.transform.position.z - 1f))
+            if (player.transform.position.z < (exit.transform.position.z + 2f) && player.transform.position.z > (exit.transform.position.z - 2f))
             {
-                GameManager.LoadScene();
+                exitLevel?.Invoke();
 
             }
         }
     }
+
 
 
 }

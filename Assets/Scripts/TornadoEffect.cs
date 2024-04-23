@@ -4,15 +4,17 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.Experimental.GraphView.GraphView;
+using System;
 
 public class TornadoEffect : MonoBehaviour
 {
     private float pullLevel = 0f;
-    private float maxPull = 100f;
+    private float maxPull = 1f;
 
     public Slider tornadoBar;
     public GameObject player;
     public GameObject tornado;
+    public static event Action caught;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +39,7 @@ public class TornadoEffect : MonoBehaviour
                 {
                     pullLevel = maxPull;
                     player.transform.localPosition += new Vector3(0f, 5f * Time.deltaTime, 0f);
-                    GameManager.LoadScene("FailScreen");
+                    caught?.Invoke();
                 }
                 tornadoBar.value = pullLevel;
             }
