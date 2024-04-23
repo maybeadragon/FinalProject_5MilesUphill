@@ -9,12 +9,30 @@ EditorBuildSettings:
     path: TestScene3
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/StartScreen.unity
+    guid: bad5838b1d32835499bc48179d1ad444
   - enabled: 1
-    path: Assets/Scenes/TestScene1.unity
-    guid: 4bdc9a7ce00a4dc48b1bf325c63cb066
+    path: Assets/Scenes/darkforest.unity
+    guid: c31e6f25008ca4049b83050887c60d7d
   - enabled: 1
+    path: Assets/Scenes/FailScreen.unity
+    guid: 040ffd0a0fd575f4d964070e6633aaf8
+  - enabled: 1
+    path: Assets/Scenes/SuccessScreen.unity
+    guid: a38e812eea85be94084cab9fa6aae75d
+  - enabled: 0
     path: Assets/Scenes/TestScene2.unity
     guid: 72e46d723717ee542bea6fd495df3861
+  - enabled: 0
+    path: Assets/Colorfull_Umbrellas/Scenes/Umbrellas.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: Assets/Scenes/HeatScene.unity
+    guid: 9ecd4edae03fe2b4590eabd834b005bf
+  - enabled: 0
+    path: Assets/Scenes/ExitTesting.unity
+    guid: 4bdc9a7ce00a4dc48b1bf325c63cb066
+  - enabled: 0
+    path: Assets/Scenes/PauseScreen.unity
+    guid: 822e4721cb99b6b40ae4dd2f1bf8faf7
   m_configObjects: {}
