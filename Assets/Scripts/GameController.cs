@@ -23,6 +23,8 @@ public class GameController : MonoBehaviour
         ColdEffect.tooCold += Fail;
         ExitScript.exitLevel += LoadScene;
         PauseGame.Quit += RestartGame;
+        deathwall.fell += Fail;
+        boulderstuff.crushed += Fail;
     }
 
     private void OnDisable()
@@ -32,6 +34,8 @@ public class GameController : MonoBehaviour
         ColdEffect.tooCold -= Fail;
         ExitScript.exitLevel -= LoadScene;
         PauseGame.Quit -= RestartGame;
+        deathwall.fell -= Fail;
+        boulderstuff.crushed -= Fail;
     }
 
     // Update is called once per frame
