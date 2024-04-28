@@ -10,6 +10,7 @@ public class StalkerStateMachine : MonoBehaviour
     private void Awake() 
     {
         stalker = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         var patrol = new StalkerPatrol(this, stalker);
 
         SetState(patrol);
