@@ -72,7 +72,6 @@
     <Compile Include="Assets\randomspawns.cs" />
     <Compile Include="Assets\boulderspawner2.cs" />
     <Compile Include="Assets\Scripts\BasicPatrol.cs" />
-    <Compile Include="Assets\Stalker\StalkerAnimatorController.cs" />
     <Compile Include="Assets\Scripts\RainEffect.cs" />
     <Compile Include="Assets\imports\AQUAS-Lite\Scripts\AQUAS_Lite_Reflection.cs" />
     <Compile Include="Assets\Scripts\BasicState.cs" />
