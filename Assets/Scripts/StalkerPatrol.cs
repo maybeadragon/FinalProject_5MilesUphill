@@ -4,8 +4,9 @@ using System.Linq; // For LINQ queries
 public class StalkerPatrol : StalkerState 
 {
     private StalkerStateMachine stateMachine;
-    private Transform[] waypoints; //Creates an array that stores the waypoints for the pathfinding
-    private int index = 0; //Initialized to the first value in the waypoints array
+    private UnityEngine.AI.NavMeshAgent agent;
+    //private Transform[] waypoints; //Creates an array that stores the waypoints for the pathfinding
+    //private int index = 0; //Initialized to the first value in the waypoints array
     private Transform playerTransform;
 
     private float detectionZone = 20f;
@@ -13,18 +14,18 @@ public class StalkerPatrol : StalkerState
     private float teleportationTime = 10f;
     private bool isTeleporting;
     private float lastDetectionTime;
+    private float exploreRadius = 10f; // Radius for roaming
 
     public StalkerPatrol(StalkerStateMachine stateMachine, UnityEngine.AI.NavMeshAgent agent)
     {
         this.stateMachine = stateMachine;
-        waypoints = GameObject.FindGameObjectsWithTag("Waypoint").Select(obj => obj.transform).ToArray();
+        this.agent = agent;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     public void Enter()
     {
-        index = 0;
-        stateMachine.stalker.SetDestination(waypoints[index].position);
+        Roam();
     }
 
     public void Execute()
@@ -35,15 +36,23 @@ public class StalkerPatrol : StalkerState
             // Transition to ChaseState
             stateMachine.SetState(new StalkerPursuit(stateMachine, stateMachine.stalker));
         }
-        else
-        {
-            // Continue patrolling if the player is not detected
-            if (stateMachine.stalker.remainingDistance < 0.5f)
-            {
-                index = (index + 1) % waypoints.Length;
-                stateMachine.stalker.SetDestination(waypoints[index].position);
-            }
-        }
+    }
+
+     private void Roam()
+    {
+        // Select the next waypoint for roaming
+        Vector3 nextWaypoint = GetNextRoamingDestination();
+        agent.SetDestination(nextWaypoint);
+    }
+
+    private Vector3 GetNextRoamingDestination()
+    {
+        // Heuristic: Favor unexplored areas by selecting a random point within a radius
+        Vector3 randomDirection = Random.insideUnitSphere * exploreRadius;
+        randomDirection += agent.transform.position;
+        UnityEngine.AI.NavMeshHit hit;
+        UnityEngine.AI.NavMesh.SamplePosition(randomDirection, out hit, exploreRadius, 1);
+        return hit.position;
     }
 
     public void TeleportNearPlayer()
