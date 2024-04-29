@@ -1,17 +1,19 @@
 using UnityEngine;
 using UnityEngine.AI; 
+using System.Collections.Generic;
 
 public class StalkerStateMachine : MonoBehaviour
 {
     public StalkerState currentState;
     public NavMeshAgent stalker;
+    public List<Transform> waypoints;
     public Animator animator;
 
     private void Awake() 
     {
         stalker = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        var patrol = new StalkerPatrol(this, stalker);
+        var patrol = new StalkerPatrol(this, stalker, waypoints);
 
         SetState(patrol);
     }

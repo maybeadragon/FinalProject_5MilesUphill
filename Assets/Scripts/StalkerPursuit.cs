@@ -1,10 +1,12 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class StalkerPursuit : StalkerState
 {
     private StalkerStateMachine stateMachine;
     private UnityEngine.AI.NavMeshAgent agent;
     private Transform playerTransform;
+    private List<Transform> waypoints; // List of waypoints for patrolling
 
     private float fieldOfViewAngle = 90f;
     private float detectionRange = 50f;
@@ -12,11 +14,12 @@ public class StalkerPursuit : StalkerState
     private float avoidanceDistance = 8f; // Distance at which the agent starts avoiding obstacles
     private float avoidanceForce = 10f; // Magnitude of the steering force applied to avoid obstacles
 
-     public StalkerPursuit(StalkerStateMachine stateMachine, UnityEngine.AI.NavMeshAgent agent)
+     public StalkerPursuit(StalkerStateMachine stateMachine, UnityEngine.AI.NavMeshAgent agent, List<Transform> waypoints)
     {
         this.stateMachine = stateMachine;
         this.agent = agent;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        this.waypoints = waypoints;
     }
 
     public void Enter()
@@ -37,13 +40,13 @@ public class StalkerPursuit : StalkerState
             else
             {
                 // Player is not in field of view, switch to patrol mode
-                stateMachine.SetState(new StalkerPatrol(stateMachine, agent));
+                stateMachine.SetState(new StalkerPatrol(stateMachine, agent, waypoints));
             }
         }
         else
         {
             // Player is out of detection range, switch to patrol mode
-            stateMachine.SetState(new StalkerPatrol(stateMachine, agent));
+            stateMachine.SetState(new StalkerPatrol(stateMachine, agent, waypoints));
         }
 
         Steer();
