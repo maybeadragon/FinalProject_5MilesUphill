@@ -7,18 +7,16 @@ public class StalkerPursuit : StalkerState
     private Transform playerTransform;
 
     private float fieldOfViewAngle = 90f;
-    private float lastDetectionTime;
-    private float detectionRange = 10f;
+    private float detectionRange = 50f;
 
-    private float avoidanceDistance = 2f; // Distance at which the agent starts avoiding obstacles
-    private float avoidanceForce = 5f; // Magnitude of the steering force applied to avoid obstacles
+    private float avoidanceDistance = 8f; // Distance at which the agent starts avoiding obstacles
+    private float avoidanceForce = 10f; // Magnitude of the steering force applied to avoid obstacles
 
      public StalkerPursuit(StalkerStateMachine stateMachine, UnityEngine.AI.NavMeshAgent agent)
     {
         this.stateMachine = stateMachine;
         this.agent = agent;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        lastDetectionTime = Time.time;
     }
 
     public void Enter()
@@ -34,7 +32,6 @@ public class StalkerPursuit : StalkerState
             // Check if the player is within the stalker's field of view
             if (IsPlayerInFieldOfView())
             {
-                lastDetectionTime = Time.time; // Update last detection time
                 agent.SetDestination(playerTransform.position);
             }
             else
@@ -71,6 +68,8 @@ public class StalkerPursuit : StalkerState
 
         return false;
     }
+
+
 
 
     private void Steer()
