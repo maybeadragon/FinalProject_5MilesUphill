@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.86039484, g: 0.7786002, b: 0.6549477, a: 1}
+  m_IndirectSpecularColor: {r: 0.8603332, g: 0.77859706, b: 0.6548764, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 491f750d5acd30f428cde9bb47001718, type: 2}
 --- !u!1001 &10951067
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5397,6 +5397,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d809855f4d8bc9f4e8392c20c5b374b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1936441986}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d809855f4d8bc9f4e8392c20c5b374b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1936441987}
   m_SourcePrefab: {fileID: 100100000, guid: d809855f4d8bc9f4e8392c20c5b374b6, type: 3}
 --- !u!1 &1735448285
 GameObject:
@@ -6126,8 +6129,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 210b5fad753daa44c82dea13b64cb77d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stalker: {fileID: 0}
+  stalker: {fileID: 1936441987}
   animator: {fileID: 1936441982}
+--- !u!195 &1936441987
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936441981}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &1942374223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6928,6 +6953,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6227048325995238158, guid: 989c950d50a2bcf4b81cb1e86f14d021, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6227048325995238158, guid: 989c950d50a2bcf4b81cb1e86f14d021, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6710710724371630516, guid: 989c950d50a2bcf4b81cb1e86f14d021, type: 3}

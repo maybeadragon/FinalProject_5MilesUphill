@@ -9,18 +9,20 @@ public class StalkerPatrol : StalkerState
     //private int index = 0; //Initialized to the first value in the waypoints array
     private Transform playerTransform;
 
-    private float detectionZone = 20f;
+    private float detectionZone = 50f;
     private float teleportRange = 5f;
     private float teleportationTime = 10f;
+    private float teleportCooldown = 20f;
     private bool isTeleporting;
     private float lastDetectionTime;
-    private float exploreRadius = 10f; // Radius for roaming
+    private float exploreRadius = 50f; // Radius for roaming
 
     public StalkerPatrol(StalkerStateMachine stateMachine, UnityEngine.AI.NavMeshAgent agent)
     {
         this.stateMachine = stateMachine;
         this.agent = agent;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        lastDetectionTime = Time.time;
     }
 
     public void Enter()
@@ -35,7 +37,24 @@ public class StalkerPatrol : StalkerState
         {
             // Transition to ChaseState
             stateMachine.SetState(new StalkerPursuit(stateMachine, stateMachine.stalker));
+            lastDetectionTime = Time.time;
+            isTeleporting = false;
+
         }
+
+        else
+        {
+            Roam();
+
+            // Check if it's time to teleport
+            if (!isTeleporting && Time.time - lastDetectionTime >= teleportCooldown)
+            {
+                TeleportNearPlayer();
+            }
+
+        }
+           
+        
     }
 
      private void Roam()
@@ -58,10 +77,11 @@ public class StalkerPatrol : StalkerState
     public void TeleportNearPlayer()
     {
         Vector3 randomOffset = Random.insideUnitSphere * teleportRange;
-        randomOffset.y = 0;
+        randomOffset.y = 0; //Done to prevent vertical movement by AI
         stateMachine.stalker.Warp(playerTransform.position + randomOffset);
         isTeleporting = true;
         lastDetectionTime = Time.time;
+        
     }
 
     public void Exit()
