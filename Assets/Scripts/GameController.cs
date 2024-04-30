@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
         PauseGame.Quit += RestartGame;
         deathwall.fell += Fail;
         boulderstuff.crushed += Fail;
+        StalkerPursuit.grounded += Fail;
     }
 
     private void OnDisable()
@@ -36,6 +37,7 @@ public class GameController : MonoBehaviour
         PauseGame.Quit -= RestartGame;
         deathwall.fell -= Fail;
         boulderstuff.crushed -= Fail;
+        StalkerPursuit.grounded -= Fail;
     }
 
     // Update is called once per frame
