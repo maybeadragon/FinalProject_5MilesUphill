@@ -11,16 +11,18 @@ public class StalkerPatrol : StalkerState
     //private int index = 0; //Initialized to the first value in the waypoints array
     private Transform playerTransform;
     public List<Transform> waypoints; //A list of waypoints for the AI to explore
-    private HashSet<Transform> exploredWaypoints = new HashSet<Transform>();
+    //private HashSet<Transform> exploredWaypoints = new HashSet<Transform>();
+    private float waypointSpacing = 50f; // Spacing between generated waypoints
 
 
-    private float detectionZone = 50f;
-    private float teleportRange = 5f;
+    private float detectionZone = 100f;
+    private float teleportRange = 25f;
     private float teleportationTime = 10f;
     private float teleportCooldown = 20f;
     private bool isTeleporting;
     private float lastDetectionTime;
-    private float exploreRadius = 50f; // Radius for roaming
+    private float exploreRadius = 500f; // Radius for roaming
+    
 
     public StalkerPatrol(StalkerStateMachine stateMachine, UnityEngine.AI.NavMeshAgent agent,  List<Transform> waypoints)
     {
@@ -63,70 +65,23 @@ public class StalkerPatrol : StalkerState
         
     }
 
-     private void Roam()
+     public void Roam()
     {
-        // Select the next waypoint for roaming
-       // Vector3 nextWaypoint = GetNextRoamingDestination();
-        //agent.SetDestination(nextWaypoint);
-        Transform nextDestination = SelectNextDestination();
-        if (nextDestination != null)
+         // Calculate A* path to the player's position
+        NavMeshPath path = new NavMeshPath();
+        if (NavMesh.CalculatePath(agent.transform.position, playerTransform.position, NavMesh.AllAreas, path))
+       {
+        // Set the AI's destination to the last waypoint of the calculated path if a valid path is found
+        if (path.corners.Length > 0)
         {
-            agent.SetDestination(nextDestination.position);
+            Vector3 lastWaypoint = path.corners[path.corners.Length - 1];
+            agent.SetDestination(lastWaypoint);
         }
-
-        
     }
+    
+     }
 
-    private Transform SelectNextDestination() //Use A* pathfinding to find next waypoint using scoring system
-    {
-        // Calculate exploration scores for each waypoint
-        Dictionary<Transform, float> explorationScores = new Dictionary<Transform, float>();
-        foreach (Transform waypoint in waypoints)
-        {
-            float explorationScore = GetExplorationScore(waypoint);
-            explorationScores.Add(waypoint, explorationScore);
-        }
-
-        // Sort waypoints by exploration score (higher scores first)
-        List<Transform> sortedWaypoints = new List<Transform>(explorationScores.Keys);
-        sortedWaypoints.Sort((a, b) => explorationScores[b].CompareTo(explorationScores[a]));
-
-        // Select the next destination from sorted waypoints
-        foreach (Transform waypoint in sortedWaypoints)
-        {
-            if (!exploredWaypoints.Contains(waypoint))
-            {
-                return waypoint;
-            }
-        }
-
-        // If all waypoints have been explored, return null
-        return null;
-    }
-
-    private float GetExplorationScore(Transform waypoint)
-    {
-        // Calculate exploration score based on exploration status of the waypoint
-        return exploredWaypoints.Contains(waypoint) ? 0f : 1f;
-    }
-
-    // Call this method when the AI reaches a waypoint to mark it as explored
-    public void MarkWaypointExplored(Transform waypoint)
-    {
-        exploredWaypoints.Add(waypoint);
-    }
-
-    /*private Vector3 GetNextRoamingDestination()
-    {
-        // Heuristic: Favor unexplored areas by selecting a random point within a radius
-        Vector3 randomDirection = Random.insideUnitSphere * exploreRadius;
-        randomDirection += agent.transform.position;
-        UnityEngine.AI.NavMeshHit hit;
-        UnityEngine.AI.NavMesh.SamplePosition(randomDirection, out hit, exploreRadius, 1);
-        return hit.position;
-    }*/
-
-    public void TeleportNearPlayer()
+     public void TeleportNearPlayer()
     {
         Vector3 randomOffset = Random.insideUnitSphere * teleportRange;
         randomOffset.y = 0; //Done to prevent vertical movement by AI
@@ -140,5 +95,8 @@ public class StalkerPatrol : StalkerState
     {
         
     }
+        
+    }
 
-}
+    
+
