@@ -8,7 +8,8 @@ using System;
 public class deathwall : MonoBehaviour
 {
       public static event Action fell;
-
+      
+      public GameObject stalkertp;
       void OnTriggerEnter(Collider other)
       {
           
@@ -20,6 +21,15 @@ public class deathwall : MonoBehaviour
             {
                   Destroy(other);
             }
+            else if (other.CompareTag("enemy"))
+            {
+                  Destroy(other.gameObject);
+            }
+            else if (other.CompareTag("stalker"))
+            {
+                other.transform.position = stalkertp.transform.position;
+            }
+            
      
       }
       
