@@ -8,6 +8,7 @@ public class StalkerStateMachine : MonoBehaviour
     public NavMeshAgent stalker;
     public List<Transform> waypoints;
     public Animator animator;
+    public AudioSource pursuit;
 
     private void Awake() 
     {
@@ -22,10 +23,12 @@ public class StalkerStateMachine : MonoBehaviour
     {
         //Set the parameter true/false in StalkerAnimatorController, depending on newState
         if (newState is StalkerPatrol) {
+            pursuit.enabled = false;
             animator.SetBool("Pursuit", false);
             animator.SetBool("Patrol", true);
         }
         else if (newState is StalkerPursuit) {
+            pursuit.enabled = true;
             animator.SetBool("Pursuit", true);
             animator.SetBool("Patrol", false);
         }
