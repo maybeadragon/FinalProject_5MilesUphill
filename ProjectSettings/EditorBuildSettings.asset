@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/darkforest.unity
     guid: c31e6f25008ca4049b83050887c60d7d
   - enabled: 1
+    path: Assets/Scenes/plains.unity
+    guid: a309b7d1618c5d745bfce93bbef238b2
+  - enabled: 1
     path: Assets/Scenes/FailScreen.unity
     guid: 040ffd0a0fd575f4d964070e6633aaf8
   - enabled: 1
