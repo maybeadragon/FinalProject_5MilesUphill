@@ -84,7 +84,6 @@ public class PlayerController : MonoBehaviour
         To adjust jump strength, change the 'jump' variable or the 'Mass' of the player object in Rigidbody
         jump = 10, Mass = 2 seems pretty good to me
         */
-        
         if (Input.GetButtonDown("Jump") && onFloor)
         {
             Rigidbody rb = GetComponent<Rigidbody>();
