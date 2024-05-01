@@ -7,6 +7,7 @@ public class animatorController : MonoBehaviour
     Animator animator;
     int isWalkingHash;
     int isRunningHash;
+    
 
    // Start is called before the first frame update
     void Start()
@@ -16,6 +17,7 @@ public class animatorController : MonoBehaviour
         //increase performance
         isWalkingHash = Animator.StringToHash("isWalking");
         isRunningHash = Animator.StringToHash("isRunning");
+        
     }
 
    // Update is called once per frame
@@ -23,36 +25,58 @@ public class animatorController : MonoBehaviour
     {
         bool isRunning = animator.GetBool(isRunningHash);
         bool isWalking = animator.GetBool(isWalkingHash);
+        bool isJumping = animator.GetBool("isJumping");
         bool forwardPressed = Input.GetKey(KeyCode.W);
         bool runPressed = Input.GetKey(KeyCode.LeftShift);
+        float walkingSpeed = 10.0f;
+        float runningSpeed = 40.0f;
+        float targetSpeed = 0.0f;
+        float maxSpeed = 40.0f;
 
         //if player press W key
-        if (!isWalking && forwardPressed)
+        if (forwardPressed)
         {
-            //then set isWalking boolean to true
+            if (runPressed)
+            {
+                targetSpeed = runningSpeed;
+                animator.SetBool(isRunningHash, true);
+            }
+
+            else
+            {
+                targetSpeed = walkingSpeed;
+                animator.SetBool(isRunningHash, false);
+            }
+
             animator.SetBool(isWalkingHash, true);
         }
 
-        //if player doesnt press W key
-        if (isWalking && !forwardPressed)
-        {
-            //set isWalking boolean to false
-            animator.SetBool(isWalkingHash, false);
-        }
 
-        if (!isRunning && (forwardPressed && runPressed))
-        {
-            //then set isWalking boolean to true
-            animator.SetBool(isRunningHash, true);
-        }
 
-        //if player doesnt press W key nor LShift
-        if (isRunning && (!forwardPressed || !runPressed))
+        else
         {
-            //set isWalking boolean to false
+            targetSpeed = 0.0f;
             animator.SetBool(isRunningHash, false);
+            animator.SetBool(isRunningHash, false);
+        }
+
+        animator.SetFloat("Velocity", targetSpeed / maxSpeed);
+
+
+        if (Input.GetKeyDown(KeyCode.Space)) 
+        {
+            animator.SetBool("isJumping", true);
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            animator.SetBool("isJumping", false);
         }
 
 
     }
+
 }
+
+
+
