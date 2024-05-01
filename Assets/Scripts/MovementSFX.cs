@@ -22,7 +22,7 @@ public class MovementSFX : MonoBehaviour
         {
             footstep.enabled = true;
             footstep.volume = Random.Range(0.5f, 0.7f);
-            footstep.pitch = Random.Range(0.8f, 1.2f);
+            footstep.pitch = Random.Range(0.65f, 1.2f);
         }
         else
         {

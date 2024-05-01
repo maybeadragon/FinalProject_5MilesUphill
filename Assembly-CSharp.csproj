@@ -55,35 +55,66 @@
     <UnityVersion>2022.3.17f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.17f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.17f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\MovementPlayer.cs" />
+    <Compile Include="Assets\Scripts\StartLocationRandomizer.cs" />
     <Compile Include="Assets\imports\Polytope Studio\Lowpoly_Demos\Environment_Free\Helpers\PlayerMovement.cs" />
+    <Compile Include="Assets\itemmovementscript.cs" />
     <Compile Include="Assets\imports\LB3D\Bus\GameManager.cs" />
     <Compile Include="Assets\imports\Polytope Studio\Lowpoly_Demos\Environment_Free\Helpers\MouseLook.cs" />
+    <Compile Include="Assets\boulderdeleter.cs" />
+    <Compile Include="Assets\Scripts\EventManager.cs" />
+    <Compile Include="Assets\Scripts\StalkerPatrol.cs" />
+    <Compile Include="Assets\Andtech\Star Pack\Samples\Star Pack Demo\Scripts\ActivateDepthRendering.cs" />
     <Compile Include="Assets\Scripts\FogEffect.cs" />
     <Compile Include="Assets\imports\FirstPersonController\FirstPersonController.cs" />
+    <Compile Include="Assets\randomspawns.cs" />
+    <Compile Include="Assets\itemmovement.cs" />
+    <Compile Include="Assets\boulderspawner2.cs" />
+    <Compile Include="Assets\Scripts\BasicPatrol.cs" />
     <Compile Include="Assets\Scripts\RainEffect.cs" />
     <Compile Include="Assets\imports\AQUAS-Lite\Scripts\AQUAS_Lite_Reflection.cs" />
+    <Compile Include="Assets\Scripts\BasicState.cs" />
+    <Compile Include="Assets\Scripts\KeyPlacement.cs" />
     <Compile Include="Assets\Scripts\HeatEffect.cs" />
+    <Compile Include="Assets\Scripts\BasicPursuit.cs" />
+    <Compile Include="Assets\Scripts\animatorController.cs" />
+    <Compile Include="Assets\Scripts\animationStateController.cs" />
+    <Compile Include="Assets\Scripts\FollowCamera.cs" />
+    <Compile Include="Assets\boulderspawner.cs" />
     <Compile Include="Assets\Scripts\TestRandom.cs" />
+    <Compile Include="Assets\itemspawner.cs" />
     <Compile Include="Assets\Scripts\ItemController.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\MoveTornado.cs" />
     <Compile Include="Assets\Scripts\TestRandomSceneChange.cs" />
     <Compile Include="Assets\Scripts\ExitScript.cs" />
     <Compile Include="Assets\Blink\Art\Animals\Stylized\Demo_Animals\DemoData\AnimationDemo.cs" />
+    <Compile Include="Assets\Scripts\PauseGame.cs" />
+    <Compile Include="Assets\Scripts\BasicPatrolState.cs" />
     <Compile Include="Assets\imports\WorldSkies\Demo\Scripts\SkyboxChanger.cs" />
     <Compile Include="Assets\Scripts\CountdownTimer.cs" />
+    <Compile Include="Assets\deathwall.cs" />
+    <Compile Include="Assets\Scripts\StalkerAIStateMachine.cs" />
+    <Compile Include="Assets\Scripts\MovementSFX.cs" />
     <Compile Include="Assets\imports\WorldSkies\Demo\Scripts\LookCamera.cs" />
     <Compile Include="Assets\imports\AQUAS-Lite\Scripts\AQUAS_Lite_Camera.cs" />
     <Compile Include="Assets\Scripts\StartGame.cs" />
     <Compile Include="Assets\Scripts\ColdEffect.cs" />
+    <Compile Include="Assets\Scripts\StalkerPursuit.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\StalkerState.cs" />
+    <Compile Include="Assets\boulderstuff.cs" />
     <Compile Include="Assets\Scripts\TornadoEffect.cs" />
+    <Compile Include="Assets\Scripts\SanctuaryZone.cs" />
     <Compile Include="Assets\imports\LB3D\Bus\Scripts\BusControl.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Andtech\Star Pack\Samples\Star Pack Demo\Scripts\Spin.cs" />
+    <Compile Include="Assets\Scripts\StaminaBar.cs" />
     <Compile Include="Assets\imports\AQUAS-Lite\Scripts\AQUAS_Lite_CamNav.cs" />
     <Compile Include="Assets\Scripts\WindEffect.cs" />
   </ItemGroup>
@@ -93,11 +124,13 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\SimpleFX\Materials\UnlitVertexColour_Alpha.shader" />
     <None Include="Assets\imports\Free Low Poly Desert Pack\Materials\Shaders\Vertex_Color_Basic.shader" />
     <None Include="Assets\imports\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Plants_Shader.shader" />
     <None Include="Assets\imports\Fantasy Skybox FREE\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\Cabin\Terrain\Sky by Heiko Irrgang\README.txt" />
     <None Include="Assets\imports\Fantasy Skybox FREE\ReleaseNotes.txt" />
     <None Include="Assets\imports\Polytope Studio\Lowpoly_Village\Sources\Shaders\PT_Buildings_Shader_PBR.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
@@ -106,10 +139,12 @@
     <None Include="Assets\imports\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Foliage_Shader.shader" />
     <None Include="Assets\imports\AQUAS-Lite\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\Cabin\Terrain\Sky by Heiko Irrgang\LICENSE.txt" />
     <None Include="Assets\imports\LB3D\Bus\Documentation.txt" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\Cabin\Terrain\Textures by textures.com\README.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
@@ -119,12 +154,14 @@
     <None Include="Assets\imports\Desert Buildings\Read me.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\imports\AQUAS-Lite\Shaders\AQUAS-Lite_Backface.shader" />
+    <None Include="Assets\Colorfull_Umbrellas\Documentation.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\imports\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Rock_Shader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\Andtech\Star Pack\Runtime\Shaders\Particle Standard Glow.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
@@ -1074,6 +1111,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Andtech.StarPack.Editor.csproj">
+      <Project>{37C34F9B-D7CA-B742-844A-5669008BA919}</Project>
+      <Name>Andtech.StarPack.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="JBooth.MicroSplat.Core.csproj">
       <Project>{48241562-8D61-4D01-17D6-416CBF0E6E99}</Project>
       <Name>JBooth.MicroSplat.Core</Name>
