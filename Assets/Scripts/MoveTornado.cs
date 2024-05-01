@@ -5,19 +5,17 @@ using UnityEngine.UIElements;
 
 public class MoveTornado : MonoBehaviour
 {
-    private int pointsReached;
+    private int i = 0;
+    private GameObject tornadoPath;
 
+    public List<GameObject> points = new List<GameObject>();
     public GameObject tornado;
-    public GameObject pointOne;
-    public GameObject pointTwo;
-    public GameObject pointThree;
-    public GameObject pointFour;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        tornadoPath = points[i];
     }
 
     // Update is called once per frame
@@ -29,117 +27,49 @@ public class MoveTornado : MonoBehaviour
 
     private void TransformTornado()
     {
-        
-        switch (pointsReached % 4)
+
+        if (i < points.Count - 1)
         {
-            case 0:
-                
-                if (tornado.transform.position.x < pointOne.transform.position.x + 0.5 && tornado.transform.position.x > pointOne.transform.position.x - 0.5)
-                {
-                    if (tornado.transform.position.z < pointOne.transform.position.z + 0.5 && tornado.transform.position.z > pointOne.transform.position.z - 0.5)
-                    {
-                        pointsReached++;
-                        break;
-                    }
-                    else
-                    {
-                        tornado.transform.localPosition += new Vector3(0f, 0f, pointOne.transform.position.z * Time.deltaTime);
-                    }
-                }
-                else
-                {
-                    if (tornado.transform.position.z < pointOne.transform.position.z + 0.5 && tornado.transform.position.z > pointOne.transform.position.z - 0.5)
-                    {
+            if (Vector3.Distance(tornadoPath.transform.position, tornado.transform.position) < 1f)
+            {
+                i++;
+                tornadoPath = points[i];
+            }
 
-                        tornado.transform.localPosition += new Vector3(pointOne.transform.position.x * Time.deltaTime, 0f, 0f);
-                    }
-                    else
-                    {
-                        tornado.transform.localPosition += new Vector3(pointOne.transform.position.x * Time.deltaTime, 0f, pointOne.transform.position.z * Time.deltaTime);
-                    }
-                }
-                break;
-
-            case 1:
-                if (tornado.transform.position.x < pointTwo.transform.position.x + 0.5 && tornado.transform.position.x > pointTwo.transform.position.x - 0.5)
-                {
-                    if (tornado.transform.position.z < pointTwo.transform.position.z + 0.5 && tornado.transform.position.z > pointTwo.transform.position.z - 0.5)
-                    {
-                        pointsReached++;
-                        break;
-                    }
-                    else
-                    {
-                        tornado.transform.localPosition += new Vector3(0f, 0f, pointTwo.transform.position.z * Time.deltaTime);
-                    }
-                }
-                else
-                {
-                    if (tornado.transform.position.z < pointTwo.transform.position.z + 0.5 && tornado.transform.position.z > pointTwo.transform.position.z - 0.5)
-                    {
-
-                        tornado.transform.localPosition += new Vector3(pointTwo.transform.position.x * Time.deltaTime, 0f, 0f);
-                    }
-                    else
-                    {
-                        tornado.transform.localPosition += new Vector3(pointTwo.transform.position.x * Time.deltaTime, 0f, pointTwo.transform.position.z * Time.deltaTime);
-                    }
-                }
-                break;
-
-            case 2:
-                if (tornado.transform.position.x < pointThree.transform.position.x + 0.5 && tornado.transform.position.x > pointThree.transform.position.x - 0.5)
-                {
-                    if (tornado.transform.position.z < pointThree.transform.position.z + 0.5 && tornado.transform.position.z > pointThree.transform.position.z - 0.5)
-                    {
-                        pointsReached++;
-                        break;
-                    }
-                    else
-                    {
-                        tornado.transform.localPosition += new Vector3(0f, 0f, pointThree.transform.position.z * Time.deltaTime);
-                    }
-                }
-                else
-                {
-                    if (tornado.transform.position.z < pointThree.transform.position.z + 0.5 && tornado.transform.position.z > pointThree.transform.position.z - 0.5)
-                    {
-
-                        tornado.transform.localPosition += new Vector3(pointThree.transform.position.x * Time.deltaTime, 0f, 0f);
-                    }
-                    else
-                    {
-                        tornado.transform.localPosition += new Vector3(pointThree.transform.position.x * Time.deltaTime, 0f, pointThree.transform.position.z * Time.deltaTime);
-                    }
-                }
-                break;
-            case 3:
-                if (tornado.transform.position.x < pointFour.transform.position.x + 0.5 && tornado.transform.position.x > pointFour.transform.position.x - 0.5)
-                {
-                    if (tornado.transform.position.z < pointFour.transform.position.z + 0.5 && tornado.transform.position.z > pointFour.transform.position.z - 0.5)
-                    {
-                        pointsReached++;
-                        break;
-                    }
-                    else
-                    {
-                        tornado.transform.localPosition += new Vector3(0f, 0f, pointFour.transform.position.z * Time.deltaTime);
-                    }
-                }
-                else
-                {
-                    if (tornado.transform.position.z < pointFour.transform.position.z + 0.5 && tornado.transform.position.z > pointFour.transform.position.z - 0.5)
-                    {
-
-                        tornado.transform.localPosition += new Vector3(pointFour.transform.position.x * Time.deltaTime, 0f, 0f);
-                    }
-                    else
-                    {
-                        tornado.transform.localPosition += new Vector3(pointFour.transform.position.x * Time.deltaTime, 0f, pointFour.transform.position.z * Time.deltaTime);
-                    }
-                }
-                break;
         }
+        else
+        {
+            if (Vector3.Distance(tornadoPath.transform.position, tornado.transform.position) < 1f)
+            {
+                i = 0;
+                tornadoPath = points[i];
+            }
+        }
+        tornado.transform.position = Vector3.Slerp(tornado.transform.position, tornadoPath.transform.position, 1f * Time.deltaTime);
 
+
+
+        /*
+         * if (tornado.transform.position.x > points[i].transform.position.x + 1f && tornado.transform.position.x < points[i].transform.position.x - 1f)
+        {
+            
+            
+        }
+        else if (tornado.transform.position.z > points[i].transform.position.z + 1f && tornado.transform.position.z < points[i].transform.position.z - 1f)
+        {
+            tornado.transform.localPosition += new Vector3(0f, 0f, 1f * Time.deltaTime);
+        }
+        else
+        {
+           
+        }
+        if (tornado.transform.position.z < points[i].transform.position.z + 1f && tornado.transform.position.z > points[i].transform.position.z - 1f)
+        {
+            
+        }
+        else
+        {
+            tornado.transform.localPosition += new Vector3(0f, 0f, points[i].transform.position.z * Time.deltaTime);
+        }*/
     }
 }

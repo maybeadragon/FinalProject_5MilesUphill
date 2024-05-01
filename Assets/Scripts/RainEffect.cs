@@ -15,7 +15,9 @@ public class RainEffect : MonoBehaviour
     void Start()
     {
         StartRaining();
+
     }
+
 
     // Update is called once per frame
     void Update()
@@ -27,6 +29,14 @@ public class RainEffect : MonoBehaviour
 
     public void StartRaining()
     {
+        if (rainBar == null)
+        {
+            rainBar = GetComponent<Slider>();
+        }
+        if (rainEffect == null)
+        {
+            rainEffect = GetComponent<ParticleSystem>();
+        }
         rainEffect.Play();
         rainLevel = 0.05f;
         rainBar.value = rainLevel;

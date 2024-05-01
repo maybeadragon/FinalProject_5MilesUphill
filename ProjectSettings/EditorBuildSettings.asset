@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/darkforest.unity
     guid: c31e6f25008ca4049b83050887c60d7d
   - enabled: 1
+    path: Assets/Scenes/Desert.unity
+    guid: f38291b1350f7aa488c2bd961c30e02a
+  - enabled: 1
+    path: Assets/Scenes/plains.unity
+    guid: a309b7d1618c5d745bfce93bbef238b2
+  - enabled: 1
     path: Assets/Scenes/FailScreen.unity
     guid: 040ffd0a0fd575f4d964070e6633aaf8
   - enabled: 1
@@ -27,11 +33,11 @@ EditorBuildSettings:
     path: Assets/Colorfull_Umbrellas/Scenes/Umbrellas.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
-    path: Assets/Scenes/HeatScene.unity
-    guid: 9ecd4edae03fe2b4590eabd834b005bf
-  - enabled: 0
     path: Assets/Scenes/ExitTesting.unity
     guid: 4bdc9a7ce00a4dc48b1bf325c63cb066
+  - enabled: 0
+    path: Assets/Scenes/HeatScene.unity
+    guid: 9ecd4edae03fe2b4590eabd834b005bf
   - enabled: 0
     path: Assets/Scenes/PauseScreen.unity
     guid: 822e4721cb99b6b40ae4dd2f1bf8faf7

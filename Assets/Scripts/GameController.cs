@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     string savedLevel;
-    static int levelsCompleted = 0;
+    public static int levelsCompleted = 0;
 
     public Animator sceneAnimation;
 
@@ -100,6 +100,7 @@ public class GameController : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadSceneAsync(sceneName);
+
         AsyncOperation nextScene = SceneManager.LoadSceneAsync(sceneName);
         if (nextScene.progress <= 0.9)
         {
@@ -153,7 +154,6 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(17f);
         levelsCompleted++;
         LoadScene();
-        Debug.Log("end");
     }
 
 

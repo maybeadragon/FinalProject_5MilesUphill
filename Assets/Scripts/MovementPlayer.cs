@@ -44,7 +44,7 @@ public class MovementPlayer : MonoBehaviour
                 isRunning = true;
             }
         }
-
+        /*
         if (Input.GetKeyDown(KeyCode.Space)) 
         { 
             if(isGrounded)
@@ -55,7 +55,7 @@ public class MovementPlayer : MonoBehaviour
 
         
         }
-  
+  */
     }
 
     private void OnCollisionStay(Collision collision)
