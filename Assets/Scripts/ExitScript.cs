@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class ExitScript : MonoBehaviour
 {
@@ -15,18 +16,26 @@ public class ExitScript : MonoBehaviour
 
     private void OnCollisionEnter()
     {
-        hasAllKeys = PickUpItems.hasAllKeys;
-
-        if (hasAllKeys)
+        if (SceneManager.GetActiveScene().name == "darkforest")
         {
+            hasAllKeys = PickUpItems.hasAllKeys;
 
-            exitLevel?.Invoke();
+            if (hasAllKeys)
+            {
 
+                exitLevel?.Invoke();
+
+            }
+            else
+            {
+                sendNotification?.Invoke();
+            }
         }
         else
         {
-            sendNotification?.Invoke();
+            exitLevel?.Invoke();
         }
+
     }
 
 
