@@ -19,6 +19,7 @@ public class HeatEffect : MonoBehaviour
     {
         SanctuaryZone.enterSanctuary += StopHeatEffect;
         SanctuaryZone.exitSanctuary += StartHeatEffect;
+        PickUpItems.collectedShelterItem += StopHeatEffect;
         if (isHot)
             StartHeatEffect();
     }
@@ -27,6 +28,7 @@ public class HeatEffect : MonoBehaviour
     {
         SanctuaryZone.enterSanctuary -= StopHeatEffect;
         SanctuaryZone.exitSanctuary -= StartHeatEffect;
+        PickUpItems.collectedShelterItem -= StopHeatEffect;
     }
 
     // Update is called once per frame
@@ -61,6 +63,17 @@ public class HeatEffect : MonoBehaviour
     }
     public void StopHeatEffect()
     {
+        StartCoroutine(lowerHeatLevel());
+    }
+
+    private IEnumerator lowerHeatLevel ()
+    {
+        while (heatLevel > 0)
+        {
+            heatLevel -= 0.05f;
+            heatBar.value = heatLevel;
+        }
+        yield return new WaitForSeconds(2f);
         heatLevel = 0f;
         heatBar.value = heatLevel;
         isHot = false;

@@ -502,6 +502,7 @@ GameObject:
   m_Component:
   - component: {fileID: 29380214}
   - component: {fileID: 29380213}
+  - component: {fileID: 29380215}
   m_Layer: 0
   m_Name: sanctuary (8)
   m_TagString: Untagged
@@ -545,6 +546,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 52.389, z: 0}
+--- !u!114 &29380215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29380212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082b018c59c1e3c4c81de92250ef8436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &37094727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1790,6 +1803,7 @@ GameObject:
   m_Component:
   - component: {fileID: 158656038}
   - component: {fileID: 158656037}
+  - component: {fileID: 158656039}
   m_Layer: 0
   m_Name: sanctuary (6)
   m_TagString: Untagged
@@ -1833,6 +1847,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 22.371, z: 0}
+--- !u!114 &158656039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158656036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082b018c59c1e3c4c81de92250ef8436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &160740769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4402,6 +4428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 475391768}
   - component: {fileID: 475391767}
+  - component: {fileID: 475391769}
   m_Layer: 0
   m_Name: sanctuary (1)
   m_TagString: Untagged
@@ -4445,6 +4472,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -54.806, z: 0}
+--- !u!114 &475391769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475391766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082b018c59c1e3c4c81de92250ef8436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &475932840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7148,6 +7187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 755164304}
   - component: {fileID: 755164303}
+  - component: {fileID: 755164305}
   m_Layer: 0
   m_Name: sanctuary (7)
   m_TagString: Untagged
@@ -7191,6 +7231,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 34.099, z: 0}
+--- !u!114 &755164305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755164302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082b018c59c1e3c4c81de92250ef8436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &772568519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8727,6 +8779,7 @@ GameObject:
   m_Component:
   - component: {fileID: 910893630}
   - component: {fileID: 910893629}
+  - component: {fileID: 910893631}
   m_Layer: 0
   m_Name: sanctuary (9)
   m_TagString: Untagged
@@ -8770,6 +8823,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 89.896, z: 0}
+--- !u!114 &910893631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910893628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082b018c59c1e3c4c81de92250ef8436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &941045489 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 157280, guid: 30ded8fdd3abc9b40929e3fac0e665c6, type: 3}
@@ -14317,6 +14382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1601015812}
   - component: {fileID: 1601015811}
+  - component: {fileID: 1601015813}
   m_Layer: 0
   m_Name: sanctuary (3)
   m_TagString: Untagged
@@ -14360,6 +14426,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 4.388, z: 0}
+--- !u!114 &1601015813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601015810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082b018c59c1e3c4c81de92250ef8436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1613405503 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 153294, guid: 50fba2f163418df47b4f53d5eae25cf2, type: 3}
@@ -14494,6 +14572,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1615149313}
   - component: {fileID: 1615149312}
+  - component: {fileID: 1615149314}
   m_Layer: 0
   m_Name: sanctuary (11)
   m_TagString: Untagged
@@ -14537,6 +14616,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 30.976, z: 0}
+--- !u!114 &1615149314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615149311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082b018c59c1e3c4c81de92250ef8436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1622410144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14730,6 +14821,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1631104353}
   - component: {fileID: 1631104352}
+  - component: {fileID: 1631104354}
   m_Layer: 0
   m_Name: sanctuary (10)
   m_TagString: Untagged
@@ -14773,6 +14865,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 89.896, z: 0}
+--- !u!114 &1631104354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631104351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082b018c59c1e3c4c81de92250ef8436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1632113062 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 156138, guid: 79ac2e693257d644d9667d22a764a0e6, type: 3}
@@ -15091,6 +15195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1701920440}
   - component: {fileID: 1701920439}
+  - component: {fileID: 1701920441}
   m_Layer: 0
   m_Name: sanctuary (4)
   m_TagString: Untagged
@@ -15134,6 +15239,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 22.371, z: 0}
+--- !u!114 &1701920441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701920438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082b018c59c1e3c4c81de92250ef8436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1707357651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15400,6 +15517,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1723957238}
   - component: {fileID: 1723957237}
+  - component: {fileID: 1723957239}
   m_Layer: 0
   m_Name: sanctuary (5)
   m_TagString: Untagged
@@ -15443,6 +15561,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 22.371, z: 0}
+--- !u!114 &1723957239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723957236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082b018c59c1e3c4c81de92250ef8436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1724002088
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16684,6 +16814,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1891499686}
   - component: {fileID: 1891499685}
+  - component: {fileID: 1891499687}
   m_Layer: 0
   m_Name: sanctuary
   m_TagString: Untagged
@@ -16727,6 +16858,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1891499687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891499684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082b018c59c1e3c4c81de92250ef8436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1904609293
 GameObject:
   m_ObjectHideFlags: 0
@@ -16737,6 +16880,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1904609295}
   - component: {fileID: 1904609294}
+  - component: {fileID: 1904609296}
   m_Layer: 0
   m_Name: sanctuary (2)
   m_TagString: Untagged
@@ -16780,6 +16924,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -54.806, z: 0}
+--- !u!114 &1904609296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904609293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082b018c59c1e3c4c81de92250ef8436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1915849911
 PrefabInstance:
   m_ObjectHideFlags: 0

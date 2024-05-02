@@ -34,9 +34,9 @@ public class animatorController : MonoBehaviour
         float maxSpeed = 40.0f;
 
         //if player press W key
-        if (forwardPressed)
+        if (forwardPressed || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
-            if (runPressed)
+            if (runPressed && StaminaBar.canRun)
             {
                 targetSpeed = runningSpeed;
                 animator.SetBool(isRunningHash, true);
@@ -50,8 +50,6 @@ public class animatorController : MonoBehaviour
 
             animator.SetBool(isWalkingHash, true);
         }
-
-
 
         else
         {
@@ -67,6 +65,7 @@ public class animatorController : MonoBehaviour
         {
             animator.SetBool("isJumping", true);
         }
+
 
         if (!Input.GetKey(KeyCode.Space))
         {
