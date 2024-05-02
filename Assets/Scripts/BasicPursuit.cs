@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class BasicPursuit : StalkerState
 {
@@ -48,11 +49,11 @@ public class BasicPursuit : StalkerState
                 stateMachine.SetState(new BasicPatrol(stateMachine, agent, waypoints));
             }
         }
-        else
+        /*else
         {
             // Player is out of detection range, switch to patrol mode
             stateMachine.SetState(new BasicPatrol(stateMachine, agent, waypoints));
-        }
+        }*/
 
         float distance = Vector3.Distance(agent.transform.position, playerTransform.position);
 

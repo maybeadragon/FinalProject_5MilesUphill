@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour
         deathwall.fell += Fail;
         boulderstuff.crushed += Fail;
         StalkerPursuit.grounded += Fail;
+        BasicPursuit.agentGameOver += Fail;
     }
 
     private void OnDisable()
@@ -39,6 +40,7 @@ public class GameController : MonoBehaviour
         deathwall.fell -= Fail;
         boulderstuff.crushed -= Fail;
         StalkerPursuit.grounded -= Fail;
+        BasicPursuit.agentGameOver -= Fail;
     }
 
     // Update is called once per frame
