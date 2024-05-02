@@ -1,15 +1,20 @@
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class BasicPursuit : StalkerState
 {
    private BasicAgentStateMachine stateMachine;
     private UnityEngine.AI.NavMeshAgent agent;
     private Transform playerTransform;
+    private List<Transform> waypoints;
 
     private float fieldOfViewAngle = 90f;
 
-    private float detectionRange = 10f;
+    private float detectionRange = 15f;
+    private float distanceThreshold = 5f;
+
+    public static event Action agentGameOver;
 
    
 
@@ -40,13 +45,20 @@ public class BasicPursuit : StalkerState
             else
             {
                 // Player is not in field of view, switch to patrol mode
-                stateMachine.SetState(new BasicPatrol(stateMachine, agent));
+                stateMachine.SetState(new BasicPatrol(stateMachine, agent, waypoints));
             }
         }
         else
         {
             // Player is out of detection range, switch to patrol mode
-            stateMachine.SetState(new BasicPatrol(stateMachine, agent));
+            stateMachine.SetState(new BasicPatrol(stateMachine, agent, waypoints));
+        }
+
+        float distance = Vector3.Distance(agent.transform.position, playerTransform.position);
+
+        if (distance <= distanceThreshold)
+        {
+            agentGameOver?.Invoke();
         }
 
         

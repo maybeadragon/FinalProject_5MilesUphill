@@ -7,12 +7,13 @@ public class BasicAgentStateMachine : MonoBehaviour
 {
     public NavMeshAgent agent;
     public StalkerState currentState;
+    public List<Transform> waypoints;
 
 
     private void Awake() 
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        var patrol = new BasicPatrol(this, agent);
+        var patrol = new BasicPatrol(this, agent, waypoints);
 
         SetState(patrol);
     }
