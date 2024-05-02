@@ -14,23 +14,12 @@ public class TornadoEffect : MonoBehaviour
     public Slider tornadoBar;
     public GameObject player;
     public GameObject tornado;
-    public GameObject rainBlock;
     public static event Action caught;
-    public static event Action raining;
 
     // Start is called before the first frame update
     void Start()
     {
-        rainBlock.GetComponent<RainEffect>().enabled = false;
-        rainBlock.SetActive(false);
         tornadoBar.gameObject.SetActive(false);
-        float randFloat = UnityEngine.Random.Range(1f, 1f);
-        if (randFloat <= 0.2f)
-        {
-            rainBlock.SetActive(true);
-            rainBlock.GetComponent<RainEffect>().enabled = true;
-
-        }
     }
 
     // Update is called once per frame
