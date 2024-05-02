@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class RainEffect : MonoBehaviour
 {
@@ -15,7 +16,14 @@ public class RainEffect : MonoBehaviour
     void Start()
     {
         StartRaining();
+        SanctuaryZone.enterSanctuary += StopRaining;
+        SanctuaryZone.exitSanctuary += StartRaining;
 
+    }
+    private void OnDisable()
+    {
+        SanctuaryZone.enterSanctuary -= StopRaining;
+        SanctuaryZone.exitSanctuary -= StartRaining;
     }
 
 
@@ -37,20 +45,28 @@ public class RainEffect : MonoBehaviour
         {
             rainEffect = GetComponent<ParticleSystem>();
         }
-        rainEffect.Play();
-        rainLevel = 0.05f;
-        rainBar.value = rainLevel;
-        isRaining = true;
-        rainBar.gameObject.SetActive(true);
+        if (UnityEngine.Random.Range(0f, 1f) <= 0.2f)
+        {
+            rainEffect.Play();
+            rainLevel = 0.05f;
+            rainBar.value = rainLevel;
+            isRaining = true;
+            rainBar.gameObject.SetActive(true);
+        }
+        else
+        {
+            StopRaining();
+        }
+
+        
+        
     }
 
     public void StopRaining()
     {
         rainEffect.Stop();
-        rainLevel = 0f;
-        rainBar.value = rainLevel;
-        isRaining = false;
-        rainBar.gameObject.SetActive(false);
+        StartCoroutine(lowerRainLevel());
+        
     }
 
     public void Raining()
@@ -66,5 +82,20 @@ public class RainEffect : MonoBehaviour
         rainBar.value = rainLevel;
 
     }
+    public IEnumerator lowerRainLevel()
+    {
+        
+        while (rainLevel > 0)
+        {
+            rainLevel -= 0.01f;
+            rainBar.value = rainLevel;
+        }
+        yield return new WaitForSeconds(3f);
+        rainLevel = 0f;
+        rainBar.value = rainLevel;
+        isRaining = false;
+        rainBar.gameObject.SetActive(false);
+    }
+
 
 }

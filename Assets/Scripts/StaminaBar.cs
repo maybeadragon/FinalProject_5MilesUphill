@@ -26,7 +26,6 @@ public class StaminaBar : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift) && canRun)
         {
-            Debug.Log("stamina go down");
             staminaBar.gameObject.SetActive(true);
             stamina += staminaDecrease * Time.deltaTime;
             staminaBar.value = stamina;
@@ -36,7 +35,6 @@ public class StaminaBar : MonoBehaviour
         {
             if (stamina < maxStamina)
             {
-                Debug.Log("recover stamina");
                 stamina += staminaIncrease * Time.deltaTime;
                 staminaBar.value = stamina;
                 Input.GetKeyDown(KeyCode.LeftShift);
@@ -45,7 +43,6 @@ public class StaminaBar : MonoBehaviour
             }
             else
             {
-                Debug.Log("business as normal");
                 stamina = maxStamina;
                 canRun = true;
                 staminaBar.gameObject.SetActive(false);

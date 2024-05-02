@@ -9,6 +9,7 @@ TagManager:
   - enemy
   - stalkerspawn
   - stalker
+  - Waypoint
   layers:
   - Default
   - TransparentFX
