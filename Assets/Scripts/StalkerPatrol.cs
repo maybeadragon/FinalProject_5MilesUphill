@@ -15,13 +15,13 @@ public class StalkerPatrol : StalkerState
     private float waypointSpacing = 50f; // Spacing between generated waypoints
 
 
-    private float detectionZone = 100f;
-    private float teleportRange = 25f;
+    private float detectionZone = 60f;
+    private float teleportRange = 40f;
     private float teleportationTime = 10f;
     private float teleportCooldown = 20f;
     private bool isTeleporting;
     private float lastDetectionTime;
-    private float exploreRadius = 500f; // Radius for roaming
+    private float exploreRadius = 300f; // Radius for roaming
     
 
     public StalkerPatrol(StalkerStateMachine stateMachine, UnityEngine.AI.NavMeshAgent agent,  List<Transform> waypoints)
@@ -46,7 +46,7 @@ public class StalkerPatrol : StalkerState
             // Transition to ChaseState
             stateMachine.SetState(new StalkerPursuit(stateMachine, stateMachine.stalker, waypoints));
             lastDetectionTime = Time.time;
-            isTeleporting = false;
+            isTeleporting = false; //Do not teleport while in chase state
 
         }
 
@@ -81,7 +81,7 @@ public class StalkerPatrol : StalkerState
     
      }
 
-     public void TeleportNearPlayer()
+     public void TeleportNearPlayer() //Teleport the agent towards the players location
     {
         Vector3 randomOffset = Random.insideUnitSphere * teleportRange;
         randomOffset.y = 0; //Done to prevent vertical movement by AI
