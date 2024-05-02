@@ -23,6 +23,7 @@ public class CountdownTimer : MonoBehaviour
         TornadoEffect.caught += DisableTimer;
         ColdEffect.tooCold += DisableTimer;
         PauseGame.Quit += QuitTimer;
+        PickUpItems.collectedTimeItem += AddToTimer;
 
     }
     private void OnDisable()
@@ -31,6 +32,7 @@ public class CountdownTimer : MonoBehaviour
         TornadoEffect.caught -= DisableTimer;
         ColdEffect.tooCold -= DisableTimer;
         PauseGame.Quit -= QuitTimer;
+        PickUpItems.collectedTimeItem -= AddToTimer;
 
     }
 
@@ -79,5 +81,10 @@ public class CountdownTimer : MonoBehaviour
         isEnabled = false;
         wasStarted = false;
         timeAllowed = 900f;
+    }
+
+    private static void AddToTimer()
+    {
+        timeAllowed += 60f;
     }
 }

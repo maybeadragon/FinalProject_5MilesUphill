@@ -20,11 +20,17 @@ public class ColdEffect : MonoBehaviour
             StartColdEffect();
         SanctuaryZone.enterSanctuary += StopColdEffect;
         SanctuaryZone.exitSanctuary += StartColdEffect;
+        RainEffect.justRain += StopColdEffect;
+        RainEffect.tooRainy += StartColdEffect;
+        PickUpItems.collectedShelterItem += StopColdEffect;
     }
     private void OnDisable()
     {
         SanctuaryZone.enterSanctuary -= StopColdEffect;
         SanctuaryZone.exitSanctuary -= StartColdEffect;
+        RainEffect.justRain -= StopColdEffect;
+        RainEffect.tooRainy -= StartColdEffect;
+        PickUpItems.collectedShelterItem -= StopColdEffect;
     }
 
     private void Update()
@@ -42,10 +48,7 @@ public class ColdEffect : MonoBehaviour
     }
     public void StopColdEffect()
     {
-        coldLevel = 0f;
-        coldBar.value = coldLevel;
-        isCold = false;
-        coldBar.gameObject.SetActive(false);
+        StartCoroutine(lowerColdLevel());
     }
 
     public void RunColdEffect()
@@ -60,6 +63,21 @@ public class ColdEffect : MonoBehaviour
             tooCold?.Invoke();
         }
         coldBar.value = coldLevel;
+    }
+
+
+    private IEnumerator lowerColdLevel()
+    {
+        while (coldLevel > 0)
+        {
+            coldLevel -= 0.05f;
+            coldBar.value = coldLevel;
+        }
+        yield return new WaitForSeconds(2f);
+        coldLevel = 0f;
+        coldBar.value = coldLevel;
+        isCold = false;
+        coldBar.gameObject.SetActive(false);
     }
 
 }

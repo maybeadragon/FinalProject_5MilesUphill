@@ -7,19 +7,25 @@ public class ExitScript : MonoBehaviour
 {
     public GameObject exit;
     public GameObject player;
+    private bool hasAllKeys;
 
     public static event Action exitLevel;
+    public static event Action sendNotification;
 
     // Update is called once per frame
     void Update()
     {
-        if (player.transform.position.x < (exit.transform.position.x + 2f) && player.transform.position.x > (exit.transform.position.x - 2f))
-        {
-            if (player.transform.position.z < (exit.transform.position.z + 2f) && player.transform.position.z > (exit.transform.position.z - 2f))
-            {
-                exitLevel?.Invoke();
+        hasAllKeys = PickUpItems.hasAllKeys;
 
-            }
+        if (Vector3.Distance(player.transform.position, exit.transform.position) < 2f && hasAllKeys)
+        {
+
+            exitLevel?.Invoke();
+            
+        }
+        else if (Vector3.Distance(player.transform.position, exit.transform.position) < 2f)
+        {
+            sendNotification?.Invoke();
         }
     }
 

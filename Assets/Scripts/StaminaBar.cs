@@ -19,6 +19,13 @@ public class StaminaBar : MonoBehaviour
     {
         stamina = maxStamina;
         canRun = (stamina >= 0f);
+
+        PickUpItems.collectedStaminaItem += StaminaBoost;
+    }
+    private void OnDisable()
+    {
+        PickUpItems.collectedStaminaItem -= StaminaBoost;
+
     }
 
     // Update is called once per frame
@@ -51,5 +58,18 @@ public class StaminaBar : MonoBehaviour
                 staminaBar.gameObject.SetActive(false);
             }
         }
+    }
+
+    private void StaminaBoost()
+    {
+        if (UnityEngine.Random.Range(1, 3) == 1)
+        {
+            staminaDecrease += 0.05f;
+        }
+        else
+        {
+            staminaIncrease += 0.05f;
+        }
+
     }
 }

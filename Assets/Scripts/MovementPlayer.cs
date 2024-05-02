@@ -19,6 +19,18 @@ public class MovementPlayer : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
+
+    void Start() 
+        {
+            PickUpItems.collectedSpeedItem += SpeedBoost;
+        } 
+
+    private void OnDisable ()
+    {
+        PickUpItems.collectedSpeedItem -= SpeedBoost;
+    }
+
+
     private void Update() //Every single frame (5-300hz)
     {
         //Gets WASD Input
@@ -39,7 +51,7 @@ public class MovementPlayer : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (Input.GetKeyDown(KeyCode.LeftShift) && StaminaBar.canRun)
             {
                 isRunning = true;
             }
@@ -72,7 +84,7 @@ public class MovementPlayer : MonoBehaviour
     private void FixedUpdate() //Every physics update (60 hz)
     {
         //Sets movement speed based on Sprint Input
-        if (isRunning)
+        if (isRunning && StaminaBar.canRun)
         {
             movementSpeed = runSpeed;
         }
@@ -89,5 +101,13 @@ public class MovementPlayer : MonoBehaviour
         }
         //Finally, set the rb velocity to be the movement vector
         rb.velocity = movementVector * movementSpeed * Time.deltaTime + new Vector3(0, -9.7f, 0); //
+
+    }
+
+
+    private void SpeedBoost()
+    {
+        walkSpeed += 0.2f;
+        runSpeed += 0.2f;
     }
 }

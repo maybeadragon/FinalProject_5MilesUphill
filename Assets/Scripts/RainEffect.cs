@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using UnityEngine.EventSystems;
+using System;
+
 public class RainEffect : MonoBehaviour
 {
     private float rainLevel = 0f;
@@ -11,11 +14,25 @@ public class RainEffect : MonoBehaviour
 
     public ParticleSystem rainEffect;
     public Slider rainBar;
+    public static event Action tooRainy;
+    public static event Action justRain;
     // Start is called before the first frame update
     void Start()
     {
         StartRaining();
+        justRain?.Invoke();
+        SanctuaryZone.enterSanctuary += StopRaining;
+        SanctuaryZone.exitSanctuary += StartRaining;
+        PickUpItems.collectedShelterItem += StopRaining;
+    }
+        
 
+
+    private void OnDisable()
+    {
+        SanctuaryZone.enterSanctuary -= StopRaining;
+        SanctuaryZone.exitSanctuary -= StartRaining;
+        PickUpItems.collectedShelterItem -= StopRaining;
     }
 
 
@@ -37,11 +54,18 @@ public class RainEffect : MonoBehaviour
         {
             rainEffect = GetComponent<ParticleSystem>();
         }
-        rainEffect.Play();
-        rainLevel = 0.05f;
-        rainBar.value = rainLevel;
-        isRaining = true;
-        rainBar.gameObject.SetActive(true);
+        if (UnityEngine.Random.Range(0f, 1f) <= 0.2f)
+        {
+            rainEffect.Play();
+            rainLevel = 0.05f;
+            rainBar.value = rainLevel;
+            isRaining = true;
+            rainBar.gameObject.SetActive(true);
+        }
+        else
+        {
+            StopRaining();
+        }
     }
 
     public void StopRaining()
@@ -62,9 +86,26 @@ public class RainEffect : MonoBehaviour
         else
         {
             rainLevel = maxRain;
+            tooRainy?.Invoke();
         }
         rainBar.value = rainLevel;
 
     }
+
+    public IEnumerator lowerRainLevel()
+    {
+        
+        while (rainLevel > 0)
+        {
+            rainLevel -= 0.01f;
+            rainBar.value = rainLevel;
+        }
+        yield return new WaitForSeconds(2f);
+        rainLevel = 0f;
+        rainBar.value = rainLevel;
+        isRaining = false;
+        rainBar.gameObject.SetActive(false);
+    }
+
 
 }
