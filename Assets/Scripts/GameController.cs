@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         HeatEffect.tooHot += Fail;
         TornadoEffect.caught += Fail;
         ColdEffect.tooCold += Fail;
