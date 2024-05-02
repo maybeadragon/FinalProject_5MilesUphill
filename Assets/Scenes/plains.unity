@@ -3466,6 +3466,108 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.316429, y: 3.1609914, z: 13.90819}
   m_Center: {x: 0.050560173, y: 1.8423948, z: -1.1560111}
+--- !u!1001 &242285420
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2647087446846776509, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+      propertyPath: m_Name
+      value: Rain Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784990010995385643, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784990010995385643, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784990010995385643, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784990010995385643, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7506708885427939105, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7506708885427939105, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7506708885427939105, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7506708885427939105, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -214
+      objectReference: {fileID: 0}
+    - target: {fileID: 7506708885427939105, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 196
+      objectReference: {fileID: 0}
+    - target: {fileID: 7506708885427939105, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -78
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+--- !u!198 &242285421 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4784990010995385643, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
+  m_PrefabInstance: {fileID: 242285420}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &258980332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8168,75 +8270,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &668462776
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2647087446846776509, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
-      propertyPath: m_Name
-      value: Rain Particles
-      objectReference: {fileID: 0}
-    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 416
-      objectReference: {fileID: 0}
-    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 149.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 477
-      objectReference: {fileID: 0}
-    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8219940474974274726, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
 --- !u!1 &677462289
 GameObject:
   m_ObjectHideFlags: 0
@@ -8353,7 +8386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028909fff2e17f94db60a654ec2d882a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rainEffect: {fileID: 2124695410}
+  rainEffect: {fileID: 242285421}
   rainBar: {fileID: 600553471}
 --- !u!1001 &687497088
 PrefabInstance:
@@ -23453,11 +23486,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be6946accf711c442ae3fcdb5ff7546c, type: 3}
---- !u!198 &2124695410 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4784990010995385643, guid: a0fb672026c4dc14ca59b75ffb417044, type: 3}
-  m_PrefabInstance: {fileID: 668462776}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2125948194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23788,6 +23816,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 362356184}
+  - {fileID: 242285420}
   - {fileID: 788774973}
   - {fileID: 1488433888}
   - {fileID: 347596467}
@@ -24038,4 +24067,3 @@ SceneRoots:
   - {fileID: 722630524}
   - {fileID: 1841656748}
   - {fileID: 1282671898}
-  - {fileID: 668462776}
