@@ -63,12 +63,12 @@ public class animatorController : MonoBehaviour
         animator.SetFloat("Velocity", targetSpeed / maxSpeed);
 
 
-        if (Input.GetKeyDown(KeyCode.Space)) 
+        if (Input.GetKey(KeyCode.Space)) 
         {
             animator.SetBool("isJumping", true);
         }
 
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (!Input.GetKey(KeyCode.Space))
         {
             animator.SetBool("isJumping", false);
         }

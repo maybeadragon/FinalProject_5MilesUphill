@@ -6,6 +6,7 @@ public class MovementSFX : MonoBehaviour
 {
     public AudioSource footstep, jump;
     private bool onFloor;
+    float footstepSpeed = 0.9f;
 
     void OnCollisionEnter(Collision collision)
     {
@@ -18,21 +19,39 @@ public class MovementSFX : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.LeftShift)) 
+        {
+            footstepSpeed = 1.5f; 
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift)) 
+        {
+            footstepSpeed = 0.9f; 
+        }
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             footstep.enabled = true;
             footstep.volume = Random.Range(0.5f, 0.7f);
-            footstep.pitch = Random.Range(0.65f, 1.2f);
+            footstep.pitch = footstepSpeed;
+
         }
         else
         {
             footstep.enabled = false;
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             footstep.enabled = false;
             jump.enabled = true;
-        }
+            StartCoroutine(DisableJump(1f));
+        } 
     }
+
+    IEnumerator DisableJump(float x)
+    {
+        yield return new WaitForSeconds(x);
+        jump.enabled = false;
+    }
+
+    
 }
