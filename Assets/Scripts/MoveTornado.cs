@@ -18,13 +18,15 @@ public class MoveTornado : MonoBehaviour
         tornadoPath = points[i];
     }
 
-    // Update is called once per frame
+    // moves tornado
     void Update()
     {
         TransformTornado();
     }
 
-
+    // for each point in the tornado's path, if the tornado is close to it
+    // it moves on to the next one
+    // otherwise, it moves towards the current pointt
     private void TransformTornado()
     {
 
@@ -47,29 +49,5 @@ public class MoveTornado : MonoBehaviour
         }
         tornado.transform.position = Vector3.Slerp(tornado.transform.position, tornadoPath.transform.position, 1f * Time.deltaTime);
 
-
-
-        /*
-         * if (tornado.transform.position.x > points[i].transform.position.x + 1f && tornado.transform.position.x < points[i].transform.position.x - 1f)
-        {
-            
-            
-        }
-        else if (tornado.transform.position.z > points[i].transform.position.z + 1f && tornado.transform.position.z < points[i].transform.position.z - 1f)
-        {
-            tornado.transform.localPosition += new Vector3(0f, 0f, 1f * Time.deltaTime);
-        }
-        else
-        {
-           
-        }
-        if (tornado.transform.position.z < points[i].transform.position.z + 1f && tornado.transform.position.z > points[i].transform.position.z - 1f)
-        {
-            
-        }
-        else
-        {
-            tornado.transform.localPosition += new Vector3(0f, 0f, points[i].transform.position.z * Time.deltaTime);
-        }*/
     }
 }

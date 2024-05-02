@@ -13,28 +13,33 @@ public class ExitScript : MonoBehaviour
     public static event Action exitLevel;
     public static event Action sendNotification;
     
-
-    private void OnCollisionEnter()
+    // when player collides with exit, checks for keys on dark forest, exits for others
+    private void OnCollisionEnter(Collision other)
     {
-        if (SceneManager.GetActiveScene().name == "darkforest")
+        Collider collider = other.collider;
+        if (collider.CompareTag("Player"))
         {
-            hasAllKeys = PickUpItems.hasAllKeys;
-
-            if (hasAllKeys)
+            if (SceneManager.GetActiveScene().name == "darkforest")
             {
+                hasAllKeys = PickUpItems.hasAllKeys;
 
-                exitLevel?.Invoke();
+                if (hasAllKeys)
+                {
 
+                    exitLevel?.Invoke();
+
+                }
+                else
+                {
+                    sendNotification?.Invoke();
+                }
             }
             else
             {
-                sendNotification?.Invoke();
+                exitLevel?.Invoke();
             }
         }
-        else
-        {
-            exitLevel?.Invoke();
-        }
+        
 
     }
 

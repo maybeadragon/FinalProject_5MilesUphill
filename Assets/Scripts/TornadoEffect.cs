@@ -24,7 +24,8 @@ public class TornadoEffect : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    // If the player is close to the tornado, the player will be pulled towards it
+    // if player doesn't escape fast enough, triggers event (fail)
     void Update()
     {
         if (player.transform.position.x < tornado.transform.position.x + 10 && player.transform.position.x > tornado.transform.position.x - 10)

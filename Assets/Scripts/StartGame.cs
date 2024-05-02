@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
 
 public class StartGame : MonoBehaviour
 {
+
+    public static event Action startgame;
     
    public void LoadRandomScreen()
     {
-        SceneManager.LoadScene(Random.Range(1, 2));
+        startgame?.Invoke();
     }
 
     public void LoadSpecificScene(string name)

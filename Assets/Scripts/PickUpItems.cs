@@ -22,6 +22,8 @@ public class PickUpItems : MonoBehaviour
     private void OnCollisionEnter(Collision collided)
     {
         Collider item = collided.collider;
+
+        // key collection
         if (item.gameObject.CompareTag("KeyItem") && SceneManager.GetActiveScene().name != "darkforest")
         {
             hasAllKeys = true;
@@ -40,24 +42,28 @@ public class PickUpItems : MonoBehaviour
 
         }
 
+        // time item collection
         if (item.gameObject.CompareTag("TimeItem"))
         {
             item.gameObject.SetActive(false);
             collectedTimeItem?.Invoke();
         }
 
+        // stamina item collection
         if (item.gameObject.CompareTag("StaminaItem"))
         {
             item.gameObject.SetActive(false);
             collectedStaminaItem?.Invoke();
         }
 
+        // speed item collection
         if (item.gameObject.CompareTag("SpeedItem"))
         {
             item.gameObject.SetActive(false);
             collectedSpeedItem?.Invoke();
         }
 
+        // shelter item collection
         if (item.gameObject.CompareTag("ShelterItem"))
         {
             item.gameObject.SetActive(false);

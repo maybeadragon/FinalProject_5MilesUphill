@@ -5578,15 +5578,37 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "How To Play\n\nTo get to school, you need to pass through many extreme
-    weather events. Each event poses a unique challenge, and you don't know what's
-    coming next.\n\nTo move on to the next extreme event, you have to find the exit.
-    Exits are marked by a tall purple beacon. For some levels, you may need to find
-    keys to be able to leave. \n\nOn each level, you'll be able to find items to
-    help you on your journey. Additionally, there are items that can help you protect
-    yourself from the extreme conditions.\n\nMove around using WASD, and using the
-    spacebar to jump. Use the escape button to bring up a pause menu.\n\nSafe travels!\n-
-    The 5Mile Development Team"
+  m_text: 'How To Play
+
+
+    To get to school, you need to pass through many extreme
+    weather events. Each event poses a unique challenge, and you don''t know what''s
+    coming next.
+
+
+    To move on to the next extreme event, you have to find the
+    exit. Exits are marked by a tall purple beacon. For some levels, you may need
+    to find keys to be able to leave.
+
+
+    On each level, you''ll be able to find
+    items to help you on your journey. Additionally, there are items that can help
+    you protect yourself from the extreme conditions.
+
+
+    Avoid falling into the
+    water and stay away from any tornados, animals, or creepy neighbors  that may
+    be around.
+
+
+    Move around using WASD, and using the spacebar to jump. Use
+    the escape button to bring up a pause menu.
+
+
+    Safe travels!
+
+    - The 5Mile
+    Development Team'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

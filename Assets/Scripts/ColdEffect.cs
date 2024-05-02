@@ -15,13 +15,13 @@ public class ColdEffect : MonoBehaviour
     public Slider coldBar;
     public static event Action tooCold;
 
-    // Start is called before the first frame update
+    // Start cold effect
     void Start()
     {
         if(isCold)
             StartColdEffect();
         SanctuaryZone.enterSanctuary += StopColdEffect;
-        SanctuaryZone.exitSanctuary += StartColdEffect;
+        //SanctuaryZone.exitSanctuary += StartColdEffect;
         RainEffect.justRain += StopColdEffect;
         RainEffect.tooRainy += StartColdEffect;
         PickUpItems.collectedShelterItem += StopColdEffect;
@@ -35,12 +35,14 @@ public class ColdEffect : MonoBehaviour
         PickUpItems.collectedShelterItem -= StopColdEffect;
     }
 
+    // if isCold is true, cold effect continues
     private void Update()
     {
         if (isCold)
             RunColdEffect();
     }
 
+    // starts the cold effect
     public void StartColdEffect()
     {
         coldLevel = 0.05f;
@@ -48,11 +50,14 @@ public class ColdEffect : MonoBehaviour
         isCold = true;
         coldBar.gameObject.SetActive(true);
     }
+
+    // stops the cold effect
     public void StopColdEffect()
     {
         StartCoroutine(lowerColdLevel());
     }
 
+    // runs the cold effect, and if it gets too cold, triggers event
     public void RunColdEffect()
     {
         if (coldLevel < maxCold)
@@ -67,7 +72,7 @@ public class ColdEffect : MonoBehaviour
         coldBar.value = coldLevel;
     }
 
-
+    // coroutine to have the cold level visibly go down
     private IEnumerator lowerColdLevel()
     {
         while (coldLevel > 0)

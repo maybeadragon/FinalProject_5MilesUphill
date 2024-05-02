@@ -108,7 +108,7 @@ public class MovementPlayer : MonoBehaviour
 
     }
 
-
+    // for item effects, increases walk and run speed
     private void SpeedBoost()
     {
         walkSpeed += 0.2f;

@@ -17,7 +17,7 @@ public class HeatEffect : MonoBehaviour
     public Slider heatBar;
     public static event Action tooHot;
     
-    // Start is called before the first frame update
+    // Starts heat effect
     void Start()
     {
         SanctuaryZone.enterSanctuary += StopHeatEffect;
@@ -34,14 +34,14 @@ public class HeatEffect : MonoBehaviour
         PickUpItems.collectedShelterItem -= StopHeatEffect;
     }
 
-    // Update is called once per frame
+    // Runs heat effect if isHot is true
     private void Update()
     {
         if (isHot)
             RunHeatEffect();
     }
 
-
+    // starts heat effect
     public void StartHeatEffect()
     {
         heatLevel = 0.05f;
@@ -50,6 +50,8 @@ public class HeatEffect : MonoBehaviour
         heatBar.gameObject.SetActive(true);
     }
 
+    // runs the heat effect until it gets too hot,
+    // then triggers event
     public void RunHeatEffect()
     {
         if (heatLevel < maxHeat)
@@ -64,11 +66,14 @@ public class HeatEffect : MonoBehaviour
         heatBar.value = heatLevel;
 
     }
+
+    // stops the heat effect
     public void StopHeatEffect()
     {
         StartCoroutine(lowerHeatLevel());
     }
 
+    // visibly decreases the heat level through coroutine
     private IEnumerator lowerHeatLevel ()
     {
         while (heatLevel > 0)

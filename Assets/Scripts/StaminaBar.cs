@@ -28,7 +28,7 @@ public class StaminaBar : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    // handles stamina, if stamina runs out then it regenerates
     void Update()
     {
         if (Input.GetKey(KeyCode.LeftShift) && canRun)
@@ -57,6 +57,8 @@ public class StaminaBar : MonoBehaviour
         }
     }
 
+    // for item effects, either makes
+    // the stamina decrease slower or increase faster
     private void StaminaBoost()
     {
         if (UnityEngine.Random.Range(1, 3) == 1)

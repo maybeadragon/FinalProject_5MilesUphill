@@ -16,10 +16,19 @@ public class RainEffect : MonoBehaviour
     public Slider rainBar;
     public static event Action tooRainy;
     public static event Action justRain;
-    // Start is called before the first frame update
+
+    // Start rain effect
+    // has random chance of occuring on level
     void Start()
     {
-        StartRaining();
+        if (UnityEngine.Random.Range(0f, 1f) <= 0.2f)
+        {
+            StartRaining();
+        }
+        else
+        {
+            StopRaining();
+        }
         justRain?.Invoke();
         SanctuaryZone.enterSanctuary += StopRaining;
         SanctuaryZone.exitSanctuary += StartRaining;
@@ -36,7 +45,7 @@ public class RainEffect : MonoBehaviour
     }
 
 
-    // Update is called once per frame
+    // Keeps raining so long as isRaining is true
     void Update()
     {
         if (isRaining)
@@ -44,6 +53,7 @@ public class RainEffect : MonoBehaviour
 
     }
 
+    // starts rain effect
     public void StartRaining()
     {
         if (rainBar == null)
@@ -54,20 +64,16 @@ public class RainEffect : MonoBehaviour
         {
             rainEffect = GetComponent<ParticleSystem>();
         }
-        if (UnityEngine.Random.Range(0f, 1f) <= 0.2f)
-        {
-            rainEffect.Play();
-            rainLevel = 0.05f;
-            rainBar.value = rainLevel;
-            isRaining = true;
-            rainBar.gameObject.SetActive(true);
-        }
-        else
-        {
-            StopRaining();
-        }
+        
+        rainEffect.Play();
+        rainLevel = 0.05f;
+        rainBar.value = rainLevel;
+        isRaining = true;
+        rainBar.gameObject.SetActive(true);
+        
     }
 
+    // stops rain effect
     public void StopRaining()
     {
         rainEffect.Stop();
@@ -77,6 +83,9 @@ public class RainEffect : MonoBehaviour
         rainBar.gameObject.SetActive(false);
     }
 
+    // runs rain effect
+    // if the rain level gets too high, will call event
+    // event starts cold effect
     public void Raining()
     {
         if (rainLevel < maxRain)
@@ -92,6 +101,7 @@ public class RainEffect : MonoBehaviour
 
     }
 
+    // visibly reduces rain level through coroutine
     public IEnumerator lowerRainLevel()
     {
         

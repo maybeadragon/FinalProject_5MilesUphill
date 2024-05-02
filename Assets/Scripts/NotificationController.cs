@@ -44,6 +44,7 @@ public class NotificationController : MonoBehaviour
         
     }
 
+    // gets message for the start of each level
     public void StartNotification()
     {
         switch (SceneManager.GetActiveScene().buildIndex)
@@ -55,54 +56,61 @@ public class NotificationController : MonoBehaviour
                 notificationText.text = "You're in the desert. Beat the heat by finding shade or drinking water.";
                 break;
             case 3:
-                notificationText.text = "You're in the plains. Look out for tornados and possibly rain. Be careful not to get too wet! Look for an umbrella to stay dry.";
+                notificationText.text = "You're in the plains. Look out for tornados and possibly rain. " +
+                    "Be careful not to get too wet! Look for an umbrella to stay dry.";
                 break;
 
             default:
-                notificationText.text = "hi"; //"You've reached mile " + GameController.levelsCompleted + " of 5. Keep on going!";
+                notificationText.text = "You've reached mile " + GameController.levelsCompleted + " of 5. Keep on going!";
                 break;
         }
         StartCoroutine(PlayNotification());
 
     }
 
+    // for exit event, sets message text
     private void ExitNotice()
     {
         notificationText.text = "You need to find all the keys before you can exit!";
         StartCoroutine(PlayNotification());
     }
 
+    // for key collection event, sets message text
     private void KeyNotice()
     {
         notificationText.text = "You found a key!";
         StartCoroutine(PlayNotification());
     }
 
+    // for time bonus collection event, sets message text
     private void TimeNotice()
     {
         notificationText.text = "You found a time boost!";
         StartCoroutine(PlayNotification());
     }
 
+    // for stamina boost collection event, sets message text
     private void StaminaNotice()
     {
         notificationText.text = "You found a stamina boost!";
         StartCoroutine(PlayNotification());
     }
 
+    // for speed boost collection event, sets message text
     private void SpeedNotice()
     {
         notificationText.text = "You found a speed boost!";
         StartCoroutine(PlayNotification());
     }
 
+    // for shelter item collection event, sets message text
     private void ShelterNotice()
     {
         notificationText.text = "You found something to protect you from the weather. Good job!";
         StartCoroutine(PlayNotification());
     }
 
-
+    // plays the notification through coroutine
     private IEnumerator PlayNotification()
     {
         popUp.SetActive(true); ;

@@ -28,6 +28,8 @@ public class GameController : MonoBehaviour
         boulderstuff.crushed += Fail;
         StalkerPursuit.grounded += Fail;
         BasicPursuit.agentGameOver += Fail;
+        CountdownTimer.outOfTime += Fail;
+        StartGame.startgame += LoadScene;
     }
 
     private void OnDisable()
@@ -41,9 +43,11 @@ public class GameController : MonoBehaviour
         boulderstuff.crushed -= Fail;
         StalkerPursuit.grounded -= Fail;
         BasicPursuit.agentGameOver -= Fail;
+        CountdownTimer.outOfTime -= Fail;
+        StartGame.startgame -= LoadScene;
     }
 
-    // Update is called once per frame
+    // ensures levelsCompleted is reset to zero
     void Update()
     {
         if ((SceneManager.GetActiveScene().Equals("StartScreen") || 
@@ -55,7 +59,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-        
+     // loads random scene, and when 5 random scenes are completed, goes to success screen   
     public void LoadScene()
         {
         
@@ -64,7 +68,6 @@ public class GameController : MonoBehaviour
             int randIndex = UnityEngine.Random.Range(1, 4);
             if (levelsCompleted == 0)
             {
-                Debug.Log("start");
                 StartCoroutine(PlayOpeningSequence());
             }
             else
@@ -90,6 +93,7 @@ public class GameController : MonoBehaviour
         }
         }
 
+    // load scene of specific index
     public void LoadScene(int index)
     {
         SceneManager.LoadSceneAsync(index);
@@ -100,6 +104,8 @@ public class GameController : MonoBehaviour
         }
         
     }
+
+    // load scene by name
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadSceneAsync(sceneName);
@@ -112,34 +118,19 @@ public class GameController : MonoBehaviour
         
     }
 
+    // for events, directly calls fail
     public void Fail()
     {
         LoadScene("FailScreen");
     }
 
+    // for events, directly calls success
     public void Succeed()
     {
         LoadScene("SuccessScreen");
     }
 
-
-    public void PauseLevel()
-    {
-        Debug.Log("Loading pause screen");
-        LoadScene("PauseScreen");
-    }
-
-    public void PlayLevel()
-    {
-        Debug.Log("returning to last level");
-        SceneManager.LoadSceneAsync("ExitTesting");
-        AsyncOperation nextScene = SceneManager.LoadSceneAsync("ExitTesting");
-        if (nextScene.progress <= 0.9)
-        {
-            sceneAnimation.SetTrigger("Fade_Out");
-        }
-
-    }
+    // for events, restarts the game
     public void RestartGame()
     {
         SceneManager.LoadSceneAsync("StartScreen");
@@ -150,6 +141,7 @@ public class GameController : MonoBehaviour
         }
     }
 
+    // coroutine, plays the opening sequence only when starting
     private IEnumerator PlayOpeningSequence()
     {
         if (levelsCompleted == 0)
@@ -159,10 +151,5 @@ public class GameController : MonoBehaviour
         LoadScene();
     }
 
-
-    private void OnTriggerEnter(Collider other)
-    {
-        PauseLevel();
-    }
 
 }

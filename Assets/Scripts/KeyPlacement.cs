@@ -11,6 +11,7 @@ public class KeyPlacement : MonoBehaviour
 
     private void Awake()
     {
+        // places keys in all spots in dark forest
         if (SceneManager.GetActiveScene().name == "darkforest")
         {
             for (int i = 0; i < keyLocations.Count; i++)
@@ -21,6 +22,7 @@ public class KeyPlacement : MonoBehaviour
                 keys[i].SetActive(true);
             }
         }
+        // places keys in one spot in other levels
         else
         {
             int randKeySpot = Random.Range(0, keyLocations.Count);
