@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
         HeatEffect.tooHot += Fail;
         TornadoEffect.caught += Fail;
         ColdEffect.tooCold += Fail;
@@ -58,7 +59,7 @@ public class GameController : MonoBehaviour
         
         if (levelsCompleted <= 5)
         {
-            int randIndex = UnityEngine.Random.Range(1, SceneManager.sceneCountInBuildSettings - 2);
+            int randIndex = UnityEngine.Random.Range(1, 4);
             if (levelsCompleted == 0)
             {
                 Debug.Log("start");

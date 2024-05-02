@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 7d0ce047a9affaf47bf2d0d1d5871dee, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 1ad132d5bd3240a42a8b3ac0ed666e1e, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4968,7 +4968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2095033522599701624, guid: c53fd334710004d41b13e0827403f55c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4012957046519213159, guid: c53fd334710004d41b13e0827403f55c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4984,7 +4984,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4268126083430941709, guid: c53fd334710004d41b13e0827403f55c, type: 3}
       propertyPath: m_Direction
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4625659858265058819, guid: c53fd334710004d41b13e0827403f55c, type: 3}
       propertyPath: m_Pivot.x
@@ -5068,7 +5068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7155034053308426194, guid: c53fd334710004d41b13e0827403f55c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8763568253639525634, guid: c53fd334710004d41b13e0827403f55c, type: 3}
       propertyPath: m_Name
@@ -5549,7 +5549,8 @@ PrefabInstance:
       propertyPath: m_StepOffset
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7259069488319486581, guid: 4bee5459c33b0044dad236e5ae7585fd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -5640,7 +5641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d809855f4d8bc9f4e8392c20c5b374b6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d809855f4d8bc9f4e8392c20c5b374b6, type: 3}
       propertyPath: m_TagString

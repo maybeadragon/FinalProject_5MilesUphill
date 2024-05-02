@@ -7,6 +7,9 @@ using System;
 
 public class HeatEffect : MonoBehaviour
 {
+    public static float heatIncrease = 0.01f;
+
+
     private float heatLevel = 0f;
     private float maxHeat = 1f;
     private bool isHot = true;
@@ -51,7 +54,7 @@ public class HeatEffect : MonoBehaviour
     {
         if (heatLevel < maxHeat)
         {
-            heatLevel += 0.01f * Time.deltaTime;
+            heatLevel += heatIncrease * Time.deltaTime;
         }
         else
         {

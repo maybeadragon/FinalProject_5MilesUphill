@@ -47,6 +47,8 @@ public class MovementPlayer : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
                 isRunning = false;
+                HeatEffect.heatIncrease = 0.01f;
+                ColdEffect.coldIncrease = 0.01f;
             }
         }
         else
@@ -54,6 +56,8 @@ public class MovementPlayer : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftShift) && StaminaBar.canRun)
             {
                 isRunning = true;
+                HeatEffect.heatIncrease += 0.01f;
+                ColdEffect.coldIncrease -= 0.01f;
             }
         }
         /*

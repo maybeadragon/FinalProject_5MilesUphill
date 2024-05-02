@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class ColdEffect : MonoBehaviour
 {
+    public static float coldIncrease = 0.01f;
+
     private float coldLevel = 0f;
     private float maxCold = 1f;
     private bool isCold = true;
@@ -55,7 +57,7 @@ public class ColdEffect : MonoBehaviour
     {
         if (coldLevel < maxCold)
         {
-            coldLevel += 0.01f * Time.deltaTime;
+            coldLevel += coldIncrease * Time.deltaTime;
         }
         else
         {

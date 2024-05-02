@@ -11,19 +11,19 @@ public class ExitScript : MonoBehaviour
 
     public static event Action exitLevel;
     public static event Action sendNotification;
+    
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter()
     {
         hasAllKeys = PickUpItems.hasAllKeys;
 
-        if (Vector3.Distance(player.transform.position, exit.transform.position) < 2f && hasAllKeys)
+        if (hasAllKeys)
         {
 
             exitLevel?.Invoke();
-            
+
         }
-        else if (Vector3.Distance(player.transform.position, exit.transform.position) < 2f)
+        else
         {
             sendNotification?.Invoke();
         }
