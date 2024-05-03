@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
 
     public Animator sceneAnimation;
 
+    public static event Action end;
+
     // Start is called before the first frame update
     
     void Start()
@@ -51,9 +53,9 @@ public class GameController : MonoBehaviour
     // ensures levelsCompleted is reset to zero
     void Update()
     {
-        if ((SceneManager.GetActiveScene().Equals("StartScreen") || 
-            SceneManager.GetActiveScene().Equals("FailScreen") || 
-            SceneManager.GetActiveScene().Equals("SuccessScreen")) 
+        if ((SceneManager.GetActiveScene().name.Equals("StartScreen") || 
+            SceneManager.GetActiveScene().name.Equals("FailScreen") || 
+            SceneManager.GetActiveScene().name.Equals("SuccessScreen")) 
             && levelsCompleted > 0) 
         {
             levelsCompleted = 0;
@@ -90,7 +92,7 @@ public class GameController : MonoBehaviour
                 sceneAnimation.SetTrigger("Fade_Out");
             }
             levelsCompleted = 0;
-            CountdownTimer.timeAllowed = 900f;
+            end?.Invoke();
         }
         }
 
@@ -123,12 +125,14 @@ public class GameController : MonoBehaviour
     public void Fail()
     {
         LoadScene("FailScreen");
+        end?.Invoke();
     }
 
     // for events, directly calls success
     public void Succeed()
     {
         LoadScene("SuccessScreen");
+        end?.Invoke();
     }
 
     // for events, restarts the game
@@ -140,6 +144,7 @@ public class GameController : MonoBehaviour
         {
             sceneAnimation.SetTrigger("Fade_Out");
         }
+        end?.Invoke();
     }
 
     // coroutine, plays the opening sequence only when starting

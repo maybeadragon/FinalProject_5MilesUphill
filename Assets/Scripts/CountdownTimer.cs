@@ -22,18 +22,14 @@ public class CountdownTimer : MonoBehaviour
         timerText = GetComponent<TextMeshProUGUI>();
         timerText.fontSize = 24f;
         EnableTimer();
-        HeatEffect.tooHot += DisableTimer;
-        TornadoEffect.caught += DisableTimer;
-        ColdEffect.tooCold += DisableTimer;
+        GameController.end += QuitTimer;
         PauseGame.Quit += QuitTimer;
         PickUpItems.collectedTimeItem += AddToTimer;
 
     }
     private void OnDisable()
     {
-        HeatEffect.tooHot -= DisableTimer;
-        TornadoEffect.caught -= DisableTimer;
-        ColdEffect.tooCold -= DisableTimer;
+        GameController.end -= QuitTimer;
         PauseGame.Quit -= QuitTimer;
         PickUpItems.collectedTimeItem -= AddToTimer;
 
@@ -50,7 +46,7 @@ public class CountdownTimer : MonoBehaviour
         }
         if (timeAllowed <= 0 && isEnabled)
         {
-            timeAllowed = 0;
+            QuitTimer();
             outOfTime?.Invoke();
         }
 
