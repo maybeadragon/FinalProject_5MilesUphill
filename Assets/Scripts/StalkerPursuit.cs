@@ -11,10 +11,10 @@ public class StalkerPursuit : StalkerState
     private List<Transform> waypoints; // List of waypoints for patrolling
 
     private float fieldOfViewAngle = 90f;
-    private float detectionRange = 100f;
+    private float detectionRange = 40f;
 
-    private float avoidanceDistance = 8f; // Distance at which the agent starts avoiding obstacles
-    private float avoidanceForce = 10f; // Magnitude of the steering force applied to avoid obstacles
+    private float avoidanceDistance = 20f; // Distance at which the agent starts avoiding obstacles
+    private float avoidanceForce = 15f; // Magnitude of the steering force applied to avoid obstacles
     private float distanceThreshold = 5f;
 
 
@@ -65,6 +65,7 @@ public class StalkerPursuit : StalkerState
         Steer();
 
     }
+    //Detects if the player is in the AI FOV by calculating the distance and angle between the two at which the agent can detect the player
     private bool IsPlayerInFieldOfView()
     {
         Vector3 directionToPlayer = playerTransform.position - agent.transform.position;
@@ -103,21 +104,8 @@ public class StalkerPursuit : StalkerState
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        // Check if the collider is the player
-        if (other.CompareTag("Player"))
-        {
-           grounded?.Invoke();
-        }
-    }
 
-    // Function to handle game over
-    private void GameOver()
-    {
-        // Show game over screen or trigger game over logic
-        Debug.Log("Game Over");
-    }
+    
     
 
      public void Exit()

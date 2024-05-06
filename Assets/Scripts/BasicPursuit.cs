@@ -13,17 +13,18 @@ public class BasicPursuit : StalkerState
     private float fieldOfViewAngle = 90f;
 
     private float detectionRange = 15f;
-    private float distanceThreshold = 5f;
+    private float distanceThreshold = 3f;
 
     public static event Action agentGameOver;
 
    
 
-    public BasicPursuit(BasicAgentStateMachine stateMachine, UnityEngine.AI.NavMeshAgent agent)
+    public BasicPursuit(BasicAgentStateMachine stateMachine, UnityEngine.AI.NavMeshAgent agent, List<Transform> wp)
     {
         this.stateMachine = stateMachine;
         this.agent = agent;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        this.waypoints = wp; //Pass through waypoints for patrol state
         
     }
 
@@ -85,23 +86,6 @@ public class BasicPursuit : StalkerState
         return false;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        // Check if the collider is the player
-        if (other.CompareTag("Player"))
-        {
-            // Call the game over function
-            //controller.Fail();
-        }
-    }
-
-    // Function to handle game over
-    private void GameOver()
-    {
-        // Show game over screen or trigger game over logic
-        Debug.Log("Game Over");
-    }
-    
 
      public void Exit()
     {

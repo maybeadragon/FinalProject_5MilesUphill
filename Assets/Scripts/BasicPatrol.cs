@@ -12,6 +12,9 @@ public class BasicPatrol : StalkerState
     private Transform playerTransform;
     private float detectionZone = 30f;
 
+    // Variable to store the index of the current waypoint when exiting patrol state
+    private int lastWaypointIndex = 0;
+
     public BasicPatrol(BasicAgentStateMachine basicPatrol, NavMeshAgent agent, List<Transform> specificWaypoints)
     {
         this.basicAgentStateMachine = basicPatrol;
@@ -21,7 +24,8 @@ public class BasicPatrol : StalkerState
 
     public void Enter()
     {
-        index = 0;
+        Debug.Log("Entering Patrol State:");
+        index = lastWaypointIndex;
         basicAgentStateMachine.agent.SetDestination(waypoints[index].position);
     }
 
@@ -29,21 +33,26 @@ public class BasicPatrol : StalkerState
     {
         if (Vector3.Distance(basicAgentStateMachine.agent.transform.position, playerTransform.position) <= detectionZone)
         {
-            basicAgentStateMachine.SetState(new BasicPursuit(basicAgentStateMachine, basicAgentStateMachine.agent));
+            basicAgentStateMachine.SetState(new BasicPursuit(basicAgentStateMachine, basicAgentStateMachine.agent, waypoints));
         }
         else
         {
             if (basicAgentStateMachine.agent.remainingDistance < 0.5f)
             {
+                 // Update the index of the last waypoint visited
+                lastWaypointIndex = index;
+
                 index = (index + 1) % waypoints.Count;
                 basicAgentStateMachine.agent.SetDestination(waypoints[index].position);
             }
         }
     }
 
+
+
     public void Exit()
     {
-        // Cleanup code when exiting patrol state
+        
     }
 
 
